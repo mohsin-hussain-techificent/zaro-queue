@@ -258,8 +258,8 @@ export default function OurCapabilitiesSection() {
 
         @media (min-width: 1025px) and (max-width: 1400px) {
           .our-capabilities .container {
-            padding-left: 5%;
-            padding-right: 5%;
+            padding-left: 3%;
+            padding-right: 3%;
             max-width: 100%;
             overflow-x: hidden;
           }
@@ -274,24 +274,41 @@ export default function OurCapabilitiesSection() {
           .capabilities-row {
             max-width: 100%;
             overflow-x: hidden;
+            gap: 20px;
+          }
+
+          .capability-card {
+            padding: 20px 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+            min-width: 0;
+            max-width: calc(50% - 10px);
+          }
+
+          .capability-description {
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            font-size: 14px;
           }
 
           /* Use percentage-based widths instead of flex */
           .capabilities-row:first-child .capability-card:first-child {
-            width: 55%;
+            width: calc(50% - 10px);
             flex: none;
           }
           .capabilities-row:first-child .capability-card:last-child {
-            width: 45%;
+            width: calc(50% - 10px);
             flex: none;
           }
 
           .capabilities-row:last-child .capability-card:first-child {
-            width: 45%;
+            width: calc(50% - 10px);
             flex: none;
           }
           .capabilities-row:last-child .capability-card:last-child {
-            width: 55%;
+            width: calc(50% - 10px);
             flex: none;
           }
         }
