@@ -79,7 +79,7 @@ export default function WhatWeDoSection() {
 
         @media (min-width: 1200px) {
           .what-we-do-content {
-            padding-left: 10%;
+            // padding-left: 10%;
             padding-right: 10%;
           }
           
@@ -107,7 +107,7 @@ export default function WhatWeDoSection() {
           line-height: 1.2em;
           color: #000;
           transition: all 0.3s ease;
-          width: 100%;
+          width: 80%;
           max-width: 100%;
         }
 
