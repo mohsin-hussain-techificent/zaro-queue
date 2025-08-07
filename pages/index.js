@@ -6,6 +6,7 @@ import OurCapabilitiesSection from '../components/OurCapabilitiesSection'
 import OurGoalsSection from '../components/OurGoalsSection'
 import StudioStatsSection from '../components/StudioStatsSection'
 import InsightsCarousel from '../components/InsightsCarousel'
+import PricingPlans from '../components/PricingPlans'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
         {/* <OurGoalsSection /> */}
         <StudioStatsSection />
         <InsightsCarousel />
+        <PricingPlans />
         <Footer />
       </div>
 
