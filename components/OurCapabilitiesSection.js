@@ -14,14 +14,19 @@ export default function OurCapabilitiesSection() {
                   alt="Award-Winning Design"
                 />
               </div>
-              <h3 className="capability-title">Award-Winning Design</h3>
+              <h3 className="capability-title">Why Choose Zero Queue?
+              </h3>
               <p className="capability-description">
-                From envisioning your brand's identity to crafting compelling
+                ➤ <strong>Automates 80% of Calls: </strong>Resolves customer queries without human intervention.<br />
+                ➤ <strong>Reduces Costs by Up to 70%: </strong>Streamline operations and lower support expenses.<br />
+                ➤ <strong>24/7 Multilingual Support upto 26 languages:</strong> Scalable, global, and always available.<br />
+                ➤ <strong>Consistent Excellence: </strong>Delivers accurate responses without fatigue or inconsistency.
+                {/* From envisioning your brand's identity to crafting compelling
                 logos and ➤ <strong>Packaging</strong>, our comprehensive
                 services encompass ➤ <strong>Art Direction</strong>, ➤{" "}
                 <strong>Brand Guidelines</strong>, ➤{" "}
                 <strong>Logo & Trademark</strong> and ➤{" "}
-                <strong>Branding Identity</strong> solutions.
+                <strong>Branding Identity</strong> solutions. */}
               </p>
               <img
                 src="/assets/arrow-link.svg"
@@ -37,14 +42,21 @@ export default function OurCapabilitiesSection() {
                   alt="Brand Strategy"
                 />
               </div>
-              <h3 className="capability-title">Brand Strategy</h3>
+              <h3 className="capability-title">Industry Applications
+              </h3>
               <p className="capability-description">
-                Brand strategy is the blueprint for how a company presents
+                ➤ <strong>E-Commerce: </strong>Track orders, manage returns, and answer FAQs instantly.<br />
+                ➤ <strong>Healthcare: </strong>Schedule appointments and clarify insurance questions. <br />
+                ➤ <strong>Real Estate: </strong>Respond to listing inquiries and pre-qualify leads.<br />
+                ➤ <strong>SaaS: </strong>Guide users through onboarding, feature explanations, and password resets.<br />
+                ➤ <strong>Services: </strong>Handle bookings, cancellations, and pricing queries effortlessly.<br />
+
+                {/* Brand strategy is the blueprint for how a company presents
                 itself to the world. A well-crafted strategy lays the ➤{" "}
                 <strong>Foundation</strong> for consistent brand experiences
-                that resonate with target audiences.
+                that resonate with target audiences. */}
               </p>
-                <img
+              <img
                 src="/assets/arrow-link.svg"
                 alt="Brand Strategy"
                 className="capability-svg-icon"
@@ -52,7 +64,7 @@ export default function OurCapabilitiesSection() {
             </div>
           </div>
 
-          <div className="capabilities-row">
+          {/* <div className="capabilities-row">
             <div className="capability-card">
               <div className="capability-icon">
                 <img
@@ -94,7 +106,7 @@ export default function OurCapabilitiesSection() {
                 className="capability-svg-icon"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -330,6 +342,6 @@ export default function OurCapabilitiesSection() {
           }
         }
       `}</style>
-    </section>
+    </section >
   );
 }
