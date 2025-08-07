@@ -5,6 +5,7 @@ import WhatWeDoSection from '../components/WhatWeDoSection'
 import OurCapabilitiesSection from '../components/OurCapabilitiesSection'
 import OurGoalsSection from '../components/OurGoalsSection'
 import StudioStatsSection from '../components/StudioStatsSection'
+import InsightsCarousel from '../components/InsightsCarousel'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -12,22 +13,23 @@ export default function Home() {
     <Layout>
       <div className="site-wrapper">
         <HeroSection />
-        
+
         {/* Selected Work Section */}
         <section className="selected-work">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Selected Work</h2>
             </div>
-            
+
             <PortfolioCarousel />
           </div>
         </section>
 
         <WhatWeDoSection />
         <OurCapabilitiesSection />
-        <OurGoalsSection />
+        {/* <OurGoalsSection /> */}
         <StudioStatsSection />
+        <InsightsCarousel />
         <Footer />
       </div>
 
@@ -90,10 +92,13 @@ export default function Home() {
 
         /* Selected Work Section */
         .selected-work {
-          padding: 100px 0 0 0;
-          background: #000;
+          z-index:2;
+          // padding: 100px 0 0 0;
+          background: #00000000;
           color: #fff;
           width: 100%;
+          transform: translateY(-30%);
+          
         }
 
         .container {

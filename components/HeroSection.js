@@ -149,11 +149,11 @@ export default function HeroSection() {
 
         /* Hero Section - Dark Theme */
         .hero-section {
-          min-height: 113vh !important;
-          height: 113vh !important;
+          // min-height: 113vh !important;
+          // height: 113vh !important;
           display: flex;
           position: relative;
-          overflow: hidden;
+          overflow: visible;
           width: 100%;
           background: #000;
           margin: 0;
@@ -162,7 +162,7 @@ export default function HeroSection() {
 
         .hero-left {
           flex: 1;
-          background: #000;
+          background: #00000000;
           display: flex;
           align-items: center;
           padding: 0 40px;
@@ -324,7 +324,7 @@ export default function HeroSection() {
           flex: 1;
           position: relative;
           background: #000;
-          overflow: hidden;
+          overflow: visible;
           max-width: 45%;
           margin: 0;
           height: 100%;
@@ -332,7 +332,7 @@ export default function HeroSection() {
 
         .hero-image {
           width: 100%;
-          height: 100%;
+          height: 100vh;
           position: relative;
           overflow: hidden;
         }
@@ -446,7 +446,7 @@ export default function HeroSection() {
             order: 2;
           }
 
-          .hero-right {
+          .hero-right { 
             height: 300px;
             max-width: 100%;
             order: 1;
