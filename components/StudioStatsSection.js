@@ -1,6 +1,244 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const StudioStatsSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return <MobileStudioStatsSection />;
+  }
+
+  return <DesktopStudioStatsSection />;
+};
+
+const MobileStudioStatsSection = () => {
+  return (
+    <section className="studio-stats-mobile">
+      <div className="mobile-container">
+        {/* Red blur spot - comes first */}
+        <div className="mobile-blur-spot">
+          <img 
+            src="/blur-spot-1011x1024.webp" 
+            alt="Blur spot"
+            className="mobile-blur-image"
+          />
+        </div>
+
+        {/* Description text - comes second */}
+        <div className="mobile-description">
+          <h3 className="mobile-description-text">
+            Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of excellence. These stats offer a glimpse into our design prowess and its real-world impact.
+          </h3>
+        </div>
+
+        {/* Stats - comes third */}
+        <div className="mobile-stats">
+          <div className="mobile-stat-item">
+            <div className="mobile-stat-number">260+</div>
+            <h4 className="mobile-stat-label">Satisfied Clients</h4>
+          </div>
+          
+          <div className="mobile-stat-item">
+            <div className="mobile-stat-number">40%</div>
+            <h4 className="mobile-stat-label">Client Referrals</h4>
+          </div>
+          
+          <div className="mobile-stat-item">
+            <div className="mobile-stat-number">70+</div>
+            <h4 className="mobile-stat-label">Award Recognitions</h4>
+          </div>
+        </div>
+
+        {/* Partner logos - comes last */}
+        <div className="mobile-partner-logos">
+          {/* First logo - logo-1.svg */}
+          {/* <div className="mobile-logo-item">
+            <img src="/assets/logo-1.svg" alt="Coiffuré" />
+          </div> */}
+          {/* Second logo - logo-2.svg */}
+          {/* <div className="mobile-logo-item">
+            <img src="/assets/logo-2.svg" alt="Tecnologia" />
+          </div> */}
+          {/* Third logo - logo-3.svg */}
+          {/* <div className="mobile-logo-item">
+            <img src="/assets/logo-3.svg" alt="FABRIK" />
+          </div> */}
+          {/* Fourth logo - logo-4.svg */}
+          {/* <div className="mobile-logo-item">
+            <img src="/assets/logo-4.svg" alt="NUMÉRIQUE" />
+          </div> */}
+          {/* Fifth logo - logo-5.svg */}
+          {/* <div className="mobile-logo-item">
+            <img src="/assets/logo-5.svg" alt="MACCHINA" />
+          </div> */}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .studio-stats-mobile {
+          background: #000;
+          background-image: url('/GettyImages-1487864067-edit.jpg');
+          background-position: bottom left;
+          background-repeat: no-repeat;
+          background-size: contain;
+          color: #fff;
+          padding: 60px 20px;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .mobile-container {
+          width: 100%;
+          max-width: 400px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 40px;
+        }
+
+        .mobile-blur-spot {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+
+        .mobile-blur-image {
+          width: 120px;
+          height: 120px;
+          opacity: 0.8;
+          filter: blur(8px);
+          transform: scale(1.1);
+        }
+
+        .mobile-description {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .mobile-description-text {
+          font-family: "Plus Jakarta Sans", Sans-serif;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.5em;
+          color: #E9E9E7;
+          margin: 0;
+          text-align: center;
+        }
+
+        .mobile-stats {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .mobile-stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .mobile-stat-number {
+          font-family: "Plus Jakarta Sans", Sans-serif;
+          font-size: 60px;
+          font-weight: 300;
+          color: #E9E9E7;
+          line-height: 1.2em;
+          margin: 0;
+        }
+
+        .mobile-stat-label {
+          font-family: "Plus Jakarta Sans", Sans-serif;
+          font-size: 20px;
+          font-weight: 500;
+          color: #E9E9E7;
+          margin: 0;
+          line-height: 1.3em;
+        }
+
+        .mobile-partner-logos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          padding-top: 30px;
+          width: 100%;
+        }
+
+        .mobile-logo-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .mobile-logo-item img {
+          max-width: 120px;
+          height: auto;
+          filter: brightness(0) invert(1);
+          opacity: 0.8;
+          transition: opacity 0.3s ease;
+        }
+
+        .mobile-logo-item:hover img {
+          opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+          .studio-stats-mobile {
+            padding: 40px 15px;
+          }
+
+          .mobile-container {
+            gap: 30px;
+          }
+
+          .mobile-blur-image {
+            width: 100px;
+            height: 100px;
+          }
+
+          .mobile-description-text {
+            font-size: 16px;
+          }
+
+          .mobile-stat-number {
+            font-size: 50px;
+          }
+
+          .mobile-stat-label {
+            font-size: 18px;
+          }
+
+          .mobile-partner-logos {
+            gap: 15px;
+          }
+
+          .mobile-logo-item img {
+            max-width: 100px;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+const DesktopStudioStatsSection = () => {
   return (
     <section className="studio-stats">
       {/* <div className="container"> */}
@@ -50,21 +288,26 @@ const StudioStatsSection = () => {
 
             {/* Partner logos - elementor-element-8e03d4e */}
             <div className="partner-logos">
-              <div className="logo-item">
+              {/* First logo - logo-1.svg */}
+              {/* <div className="logo-item">
                 <img src="/assets/logo-1.svg" alt="Coiffuré" />
-              </div>
-              <div className="logo-item">
+              </div> */}
+              {/* Second logo - logo-2.svg */}
+              {/* <div className="logo-item">
                 <img src="/assets/logo-2.svg" alt="Tecnologia" />
-              </div>
-              <div className="logo-item">
+              </div> */}
+              {/* Third logo - logo-3.svg */}
+              {/* <div className="logo-item">
                 <img src="/assets/logo-3.svg" alt="FABRIK" />
-              </div>
-              <div className="logo-item">
+              </div> */}
+              {/* Fourth logo - logo-4.svg */}
+              {/* <div className="logo-item">
                 <img src="/assets/logo-4.svg" alt="NUMÉRIQUE" />
-              </div>
-              <div className="logo-item">
+              </div> */}
+              {/* Fifth logo - logo-5.svg */}
+              {/* <div className="logo-item">
                 <img src="/assets/logo-5.svg" alt="MACCHINA" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -311,97 +554,10 @@ const StudioStatsSection = () => {
             padding: 25px 0 0 0;
           }
         }
-
-        @media (max-width: 768px) {
-          .studio-stats {
-            padding: 80px 0;
-          }
-
-          .main-container {
-            padding: 30px 20px 30px 20px;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .inner-wrapper {
-            gap: 0px 0px;
-            row-gap: 0px;
-            column-gap: 0px;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-          }
-
-          .left-container {
-            gap: 0px 0px;
-            row-gap: 0px;
-            column-gap: 0px;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-          }
-
-          .blur-spot-container {
-            width: 100%;
-            max-width: 100%;
-            text-align: left;
-          }
-
-          .blur-spot-image {
-            max-width: 80%;
-          }
-
-          .description-container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0px;
-            padding: 0px;
-          }
-
-          .description-container {
-            margin-bottom: 20px;
-          }
-
-          .stats-row {
-            gap: 20px;
-          }
-
-          .stat-container {
-            align-items: center;
-            text-align: center;
-          }
-
-          .partner-logos {
-            padding: 25px 0 0 0;
-            justify-content: center;
-            gap: 20px;
-          }
-
-          .logo-item {
-            min-width: 80px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .description-container {
-            padding: 0 15px;
-          }
-
-          .partner-logos {
-            padding: 15px 0 0 0;
-            flex-direction: column;
-            gap: 15px;
-          }
-
-          .logo-item {
-            min-width: 120px;
-          }
-        }
       `}</style>
     </section>
   );
 };
 
 export default StudioStatsSection;
+
