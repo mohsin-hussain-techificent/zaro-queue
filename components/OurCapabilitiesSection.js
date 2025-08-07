@@ -14,15 +14,25 @@ export default function OurCapabilitiesSection() {
                   alt="Award-Winning Design"
                 />
               </div>
-              <h3 className="capability-title">Award-Winning Design</h3>
+              <h3 className="capability-title">Why Choose Zero Queue?
+              </h3>
               <p className="capability-description">
-                From envisioning your brand's identity to crafting compelling
+                ➤ <strong>Automates 80% of Calls: </strong>Resolves customer queries without human intervention.<br />
+                ➤ <strong>Reduces Costs by Up to 70%: </strong>Streamline operations and lower support expenses.<br />
+                ➤ <strong>24/7 Multilingual Support upto 26 languages:</strong> Scalable, global, and always available.<br />
+                ➤ <strong>Consistent Excellence: </strong>Delivers accurate responses without fatigue or inconsistency.
+                {/* From envisioning your brand's identity to crafting compelling
                 logos and ➤ <strong>Packaging</strong>, our comprehensive
-                services encompass ➤ <strong>Art Direction</strong>, ➤{' '}
-                <strong>Brand Guidelines</strong>, ➤{' '}
-                <strong>Logo & Trademark</strong> and ➤{' '}
-                <strong>Branding Identity</strong> solutions.
+                services encompass ➤ <strong>Art Direction</strong>, ➤{" "}
+                <strong>Brand Guidelines</strong>, ➤{" "}
+                <strong>Logo & Trademark</strong> and ➤{" "}
+                <strong>Branding Identity</strong> solutions. */}
               </p>
+              <img
+                src="/assets/arrow-link.svg"
+                alt="Award-Winning Design"
+                className="capability-svg-icon"
+              />
             </div>
 
             <div className="capability-card">
@@ -32,17 +42,29 @@ export default function OurCapabilitiesSection() {
                   alt="Brand Strategy"
                 />
               </div>
-              <h3 className="capability-title">Brand Strategy</h3>
+              <h3 className="capability-title">Industry Applications
+              </h3>
               <p className="capability-description">
-                Brand strategy is the blueprint for how a company presents
-                itself to the world. A well-crafted strategy lays the ➤{' '}
+                ➤ <strong>E-Commerce: </strong>Track orders, manage returns, and answer FAQs instantly.<br />
+                ➤ <strong>Healthcare: </strong>Schedule appointments and clarify insurance questions. <br />
+                ➤ <strong>Real Estate: </strong>Respond to listing inquiries and pre-qualify leads.<br />
+                ➤ <strong>SaaS: </strong>Guide users through onboarding, feature explanations, and password resets.<br />
+                ➤ <strong>Services: </strong>Handle bookings, cancellations, and pricing queries effortlessly.<br />
+
+                {/* Brand strategy is the blueprint for how a company presents
+                itself to the world. A well-crafted strategy lays the ➤{" "}
                 <strong>Foundation</strong> for consistent brand experiences
-                that resonate with target audiences.
+                that resonate with target audiences. */}
               </p>
+              <img
+                src="/assets/arrow-link.svg"
+                alt="Brand Strategy"
+                className="capability-svg-icon"
+              />
             </div>
           </div>
 
-          <div className="capabilities-row">
+          {/* <div className="capabilities-row">
             <div className="capability-card">
               <div className="capability-icon">
                 <img
@@ -53,10 +75,15 @@ export default function OurCapabilitiesSection() {
               <h3 className="capability-title">Future-Proof Development</h3>
               <p className="capability-description">
                 Development is the art of crafting dynamic, interactive, and
-                user-friendly ➤ <strong>Websites</strong> and ➤{' '}
+                user-friendly ➤ <strong>Websites</strong> and ➤{" "}
                 <strong>Apps</strong>. It's about crafting seamless digital
                 experiences that captivate audiences across various platforms.
               </p>
+                <img
+                src="/assets/arrow-link.svg"
+                alt="Future-Proof"
+                className="capability-svg-icon"
+              />
             </div>
 
             <div className="capability-card">
@@ -69,12 +96,17 @@ export default function OurCapabilitiesSection() {
               <h3 className="capability-title">Proven Marketing</h3>
               <p className="capability-description">
                 From cultivating engaging ➤ Social Media presence to precise
-                direct and ➤ <strong>Product Marketing</strong>, we reach your
-                ➤ <strong>Target Audience</strong> with compelling ➤{' '}
+                direct and ➤ <strong>Product Marketing</strong>, we reach your ➤{" "}
+                <strong>Target Audience</strong> with compelling ➤{" "}
                 <strong>Content Creation</strong> strategies.
               </p>
+                <img
+                src="/assets/arrow-link.svg"
+                alt="Proven Marketing"
+                className="capability-svg-icon"
+              />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -133,21 +165,18 @@ export default function OurCapabilitiesSection() {
           transform: translateY(-5px);
         }
 
-        .capability-card::before {
-          content: '';
+        .capability-svg-icon {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          width: 0;
-          height: 0;
-          border-left: 8px solid transparent;
-          border-right: 8px solid transparent;
-          border-bottom: 12px solid #000;
+          top: 10px;
+          right: 10px;
+          width: 38px;
+          height: 38px;
           opacity: 0;
           transition: opacity 0.3s ease;
+          
         }
 
-        .capability-card:hover::before {
+        .capability-card:hover .capability-svg-icon {
           opacity: 1;
         }
 
@@ -162,7 +191,7 @@ export default function OurCapabilitiesSection() {
         }
 
         .capability-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-size: clamp(32px, 1.5vw, 50px);
           font-weight: normal;
           color: #000;
@@ -173,7 +202,7 @@ export default function OurCapabilitiesSection() {
         }
 
         .capability-description {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-size: 16px;
           font-weight: 400;
           color: #333;
@@ -194,7 +223,7 @@ export default function OurCapabilitiesSection() {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin-bottom: 40px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           text-align: left;
         }
 
@@ -233,12 +262,12 @@ export default function OurCapabilitiesSection() {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capabilities-row {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capability-card {
             padding: 30px;
             flex: 1 1 100% !important;
@@ -250,7 +279,7 @@ export default function OurCapabilitiesSection() {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capability-card {
             flex: 1 1 100% !important;
           }
@@ -313,6 +342,6 @@ export default function OurCapabilitiesSection() {
           }
         }
       `}</style>
-    </section>
+    </section >
   );
 }

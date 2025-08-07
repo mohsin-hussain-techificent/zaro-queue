@@ -6,7 +6,10 @@ import OurCapabilitiesSection from '../components/OurCapabilitiesSection'
 import OurGoalsSection from '../components/OurGoalsSection'
 import StudioStatsSection from '../components/StudioStatsSection'
 import InsightsCarousel from '../components/InsightsCarousel'
+import PricingPlans from '../components/PricingPlans'
 import Footer from '../components/Footer'
+import FAQSection from '../components/FAQSection'
+import ContactSection from '../components/ContactSection'
 
 export default function Home() {
   return (
@@ -30,6 +33,9 @@ export default function Home() {
         {/* <OurGoalsSection /> */}
         <StudioStatsSection />
         <InsightsCarousel />
+        <PricingPlans />
+        <FAQSection />
+        <ContactSection />
         <Footer />
       </div>
 

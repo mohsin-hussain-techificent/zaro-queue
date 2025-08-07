@@ -7,13 +7,13 @@ const InsightsCarousel = () => {
   const testimonials = [
     {
       id: 1,
-      text: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience.",
-      author: "Sarah Johnson, Marketing Lead at Technlogia"
+      text: "Zero Queue slashed our support workload by 50% in just one month. Customers love the instant, accurate responses.",
+      author: "Sara D., E-Commerce Operations Lead"
     },
     {
       id: 2,
-      text: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience. The team's turned our vision into a reality, and we couldn't be happier.",
-      author: "Frank Berry, Chief Creative Officer at Gomi"
+      text: "We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly.",
+      author: "Nick M., Tech Startup Founder"
     },
     {
       id: 3,
@@ -42,8 +42,8 @@ const InsightsCarousel = () => {
             <span className="divider"></span>
             <span className="rating">5.0</span>
             <span style={{
-              marginLeft:"3px",
-              color:"black"
+              marginLeft: "3px",
+              color: "black"
             }}>★</span>
           </div>
           <div className="reviews-description">
@@ -53,57 +53,60 @@ const InsightsCarousel = () => {
 
         {/* Testimonials Carousel */}
         <div className="testimonials-carousel">
-                     <Swiper
-             modules={[Pagination]}
-             spaceBetween={50}
-             slidesPerView={3}
-             pagination={{
-               clickable: true,
-               type: 'bullets',
-             }}
-             className="testimonials-swiper"
-             breakpoints={{
-               320: {
-                 slidesPerView: 1,
-                 spaceBetween: 20
-               },
-               768: {
-                 slidesPerView: 2,
-                 spaceBetween: 30
-               },
-               1024: {
-                 slidesPerView: 3,
-                 spaceBetween: 50
-               }
-             }}
-           >
-                         {testimonials.map((testimonial, index) => (
-               <SwiperSlide key={testimonial.id}>
-                 <div 
-                   className="testimonial-card"
-                   style={{
-                     paddingTop: index % 2 === 0 ? '73px' : '30px'
-                   }}
-                 >
-                   <div className="testimonial-content">
-                     <div className="quote-mark">
-                       <img src="/Quote.svg" alt="Quote" />
-                     </div>
-                     <div className="testimonial-text">
-                       {testimonial.text}
-                     </div>
-                     <div className="testimonial-author">
-                       — {testimonial.author}
-                     </div>
-                   </div>
-                 </div>
-               </SwiperSlide>
-             ))}
-                     </Swiper>
-         </div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={50}
+            slidesPerView={3}
+            pagination={{
+              clickable: true,
+              type: 'bullets',
+            }}
+            className="testimonials-swiper"
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 20
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 50
+              }
+            }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={testimonial.id}>
+                <div
+                  className="testimonial-card"
+                  style={{
+                    paddingTop: index % 2 === 0 ? '73px' : '30px'
+                  }}
+                >
+                  <div className="testimonial-content">
+                    <div className="quote-mark">
+                      <img src="/Quote.svg" alt="Quote" />
+                    </div>
+                    <div className="testimonial-text">
+                      {testimonial.text}
+                    </div>
+                    <div className="testimonial-author">
+                      — {testimonial.author}
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
 
       <style jsx>{`
+        :global(.swiper-pagination-bullet-active) {
+           background: #000 !important;
+        }
         .reviews-section {
           background: #f8f8f8;
           padding: 100px 0;
