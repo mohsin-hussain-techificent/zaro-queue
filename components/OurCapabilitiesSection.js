@@ -18,11 +18,16 @@ export default function OurCapabilitiesSection() {
               <p className="capability-description">
                 From envisioning your brand's identity to crafting compelling
                 logos and ➤ <strong>Packaging</strong>, our comprehensive
-                services encompass ➤ <strong>Art Direction</strong>, ➤{' '}
-                <strong>Brand Guidelines</strong>, ➤{' '}
-                <strong>Logo & Trademark</strong> and ➤{' '}
+                services encompass ➤ <strong>Art Direction</strong>, ➤{" "}
+                <strong>Brand Guidelines</strong>, ➤{" "}
+                <strong>Logo & Trademark</strong> and ➤{" "}
                 <strong>Branding Identity</strong> solutions.
               </p>
+              <img
+                src="/assets/arrow-link.svg"
+                alt="Award-Winning Design"
+                className="capability-svg-icon"
+              />
             </div>
 
             <div className="capability-card">
@@ -35,10 +40,15 @@ export default function OurCapabilitiesSection() {
               <h3 className="capability-title">Brand Strategy</h3>
               <p className="capability-description">
                 Brand strategy is the blueprint for how a company presents
-                itself to the world. A well-crafted strategy lays the ➤{' '}
+                itself to the world. A well-crafted strategy lays the ➤{" "}
                 <strong>Foundation</strong> for consistent brand experiences
                 that resonate with target audiences.
               </p>
+                <img
+                src="/assets/arrow-link.svg"
+                alt="Brand Strategy"
+                className="capability-svg-icon"
+              />
             </div>
           </div>
 
@@ -53,10 +63,15 @@ export default function OurCapabilitiesSection() {
               <h3 className="capability-title">Future-Proof Development</h3>
               <p className="capability-description">
                 Development is the art of crafting dynamic, interactive, and
-                user-friendly ➤ <strong>Websites</strong> and ➤{' '}
+                user-friendly ➤ <strong>Websites</strong> and ➤{" "}
                 <strong>Apps</strong>. It's about crafting seamless digital
                 experiences that captivate audiences across various platforms.
               </p>
+                <img
+                src="/assets/arrow-link.svg"
+                alt="Future-Proof"
+                className="capability-svg-icon"
+              />
             </div>
 
             <div className="capability-card">
@@ -69,10 +84,15 @@ export default function OurCapabilitiesSection() {
               <h3 className="capability-title">Proven Marketing</h3>
               <p className="capability-description">
                 From cultivating engaging ➤ Social Media presence to precise
-                direct and ➤ <strong>Product Marketing</strong>, we reach your
-                ➤ <strong>Target Audience</strong> with compelling ➤{' '}
+                direct and ➤ <strong>Product Marketing</strong>, we reach your ➤{" "}
+                <strong>Target Audience</strong> with compelling ➤{" "}
                 <strong>Content Creation</strong> strategies.
               </p>
+                <img
+                src="/assets/arrow-link.svg"
+                alt="Proven Marketing"
+                className="capability-svg-icon"
+              />
             </div>
           </div>
         </div>
@@ -133,21 +153,18 @@ export default function OurCapabilitiesSection() {
           transform: translateY(-5px);
         }
 
-        .capability-card::before {
-          content: '';
+        .capability-svg-icon {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          width: 0;
-          height: 0;
-          border-left: 8px solid transparent;
-          border-right: 8px solid transparent;
-          border-bottom: 12px solid #000;
+          top: 10px;
+          right: 10px;
+          width: 38px;
+          height: 38px;
           opacity: 0;
           transition: opacity 0.3s ease;
+          
         }
 
-        .capability-card:hover::before {
+        .capability-card:hover .capability-svg-icon {
           opacity: 1;
         }
 
@@ -162,7 +179,7 @@ export default function OurCapabilitiesSection() {
         }
 
         .capability-title {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-size: clamp(32px, 1.5vw, 50px);
           font-weight: normal;
           color: #000;
@@ -173,7 +190,7 @@ export default function OurCapabilitiesSection() {
         }
 
         .capability-description {
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           font-size: 16px;
           font-weight: 400;
           color: #333;
@@ -194,7 +211,7 @@ export default function OurCapabilitiesSection() {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin-bottom: 40px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-family: "Plus Jakarta Sans", sans-serif;
           text-align: left;
         }
 
@@ -233,12 +250,12 @@ export default function OurCapabilitiesSection() {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capabilities-row {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capability-card {
             padding: 30px;
             flex: 1 1 100% !important;
@@ -250,7 +267,7 @@ export default function OurCapabilitiesSection() {
             flex-direction: column;
             gap: 30px;
           }
-          
+
           .capability-card {
             flex: 1 1 100% !important;
           }

@@ -180,7 +180,7 @@ export default function HeroSection() {
         }
 
         .hero-title {
-          font-size: clamp(70px, 3vw, 90px);
+          font-size: clamp(25px, 3vw, 80px) !important;
           font-weight: 300;
           line-height: 1em;
           margin-bottom: 50px;
@@ -191,6 +191,7 @@ export default function HeroSection() {
         }
 
         .elementor-headline {
+          font-size: clamp(25px, 5.5vw, 75px) !important;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -207,6 +208,7 @@ export default function HeroSection() {
           line-height: 1.1;
           margin-bottom: 8px;
           white-space: nowrap;
+          font-size:inherient !important;
         }
 
         .elementor-headline-dynamic-wrapper {
@@ -216,6 +218,7 @@ export default function HeroSection() {
         }
 
         .elementor-headline-dynamic-text {
+          font-size: inherit !important;
           display: inline-block;
           transition: all 0.3s ease;
           color: #fff;
