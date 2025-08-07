@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import FloatingVoiceButton from './FloatingVoiceButton'
 
 export default function Layout({ children, title = 'Pixel Pier NYC' }) {
   return (
@@ -12,6 +13,7 @@ export default function Layout({ children, title = 'Pixel Pier NYC' }) {
 
       <main>
         {children}
+        <FloatingVoiceButton />
       </main>
     </>
   )
