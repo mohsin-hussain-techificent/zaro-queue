@@ -1,104 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import VoiceNotification from './VoiceNotification';
+import { useVoiceContext } from './VoiceContext';
 
 const FloatingVoiceButton = () => {
-  const [isRecording, setIsRecording] = useState(false);
-  const [conversation, setConversation] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [notification, setNotification] = useState({ show: false, message: '', type: 'info' });
-
-  // ElevenLabs Agent ID - this is the specific voice agent you want to connect to
-  const AGENT_ID = "ZvAwcehlvHp8ijfiLbdR";
-
-  const showNotification = (message, type = 'info') => {
-    setNotification({ show: true, message, type });
-  };
-
-  const hideNotification = () => {
-    setNotification({ show: false, message: '', type: 'info' });
-  };
-
-  const handleStartRecording = async () => {
-    setIsLoading(true);
-    showNotification('Requesting microphone access...', 'info');
-    
-    try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-      showNotification('Connecting to voice agent...', 'info');
-      
-      // Wait for ElevenLabs to be available (loaded from document head)
-      const waitForElevenLabs = () => {
-        return new Promise((resolve, reject) => {
-          const checkInterval = setInterval(() => {
-            if (window.ElevenLabs && window.ElevenLabs.Conversation) {
-              clearInterval(checkInterval);
-              resolve(window.ElevenLabs.Conversation);
-            }
-          }, 100);
-
-          // Timeout after 10 seconds
-          setTimeout(() => {
-            clearInterval(checkInterval);
-            reject(new Error('ElevenLabs client failed to load'));
-          }, 10000);
-        });
-      };
-
-      const Conversation = await waitForElevenLabs();
-      
-      const newConversation = await Conversation.startSession({
-        agentId: AGENT_ID, // This is where the agentId is used!
-        onConnect: () => {
-          console.log("Connected to agent:", AGENT_ID);
-          setIsLoading(false);
-          showNotification('Voice agent connected! Start speaking...', 'success');
-        },
-        onDisconnect: () => {
-          console.log("Disconnected from agent:", AGENT_ID);
-          setIsRecording(false);
-          setConversation(null);
-          showNotification('Voice session ended', 'info');
-        },
-        onMessage: (msg) => {
-          console.log("Agent response:", msg);
-          showNotification(`Agent: ${msg}`, 'info');
-        },
-        onError: (err) => {
-          console.error("Voice error:", err);
-          setIsLoading(false);
-          setIsRecording(false);
-          showNotification('Voice connection error', 'error');
-        },
-      });
-
-      console.log("Conversation started with agent:", AGENT_ID);
-      console.log("Conversation ID:", newConversation.getId());
-      localStorage.setItem("convId", newConversation.getId());
-      setConversation(newConversation);
-      setIsRecording(true);
-      
-    } catch (err) {
-      console.error("Failed to start conversation:", err);
-      setIsLoading(false);
-      showNotification('Failed to start voice session', 'error');
-    }
-  };
-
-  const handleStopRecording = async () => {
-    showNotification('Ending voice session...', 'info');
-    
-    if (conversation) {
-      try {
-        await conversation.endSession();
-        console.log("Conversation ended with agent:", AGENT_ID);
-      } catch (error) {
-        console.error("Error ending conversation:", error);
-      }
-      setConversation(null);
-    }
-    setIsRecording(false);
-    showNotification('Voice session ended', 'success');
-  };
+  const { 
+    isRecording, 
+    isLoading, 
+    startRecording, 
+    stopRecording, 
+    notification, 
+    hideNotification 
+  } = useVoiceContext();
 
   return (
     <>
@@ -108,7 +20,7 @@ const FloatingVoiceButton = () => {
           <div className="voice-command">
             <button 
               className={`voice-btn ${isRecording || isLoading ? 'hidden' : ''}`}
-              onClick={handleStartRecording}
+              onClick={startRecording}
               aria-label="Start voice recording"
               disabled={isLoading}
             >
@@ -120,7 +32,7 @@ const FloatingVoiceButton = () => {
             
             <button 
               className={`voice-btn ${!isRecording ? 'hidden' : ''}`}
-              onClick={handleStopRecording}
+              onClick={stopRecording}
               aria-label="Stop voice recording"
             >
               <svg className="pause-icon" viewBox="0 0 24 24" fill="currentColor">

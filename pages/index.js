@@ -8,6 +8,8 @@ import StudioStatsSection from '../components/StudioStatsSection'
 import InsightsCarousel from '../components/InsightsCarousel'
 import PricingPlans from '../components/PricingPlans'
 import Footer from '../components/Footer'
+import FAQSection from '../components/FAQSection'
+import ContactSection from '../components/ContactSection'
 
 export default function Home() {
   return (
@@ -32,6 +34,8 @@ export default function Home() {
         <StudioStatsSection />
         <InsightsCarousel />
         <PricingPlans />
+        <FAQSection />
+        <ContactSection />
         <Footer />
       </div>
 
