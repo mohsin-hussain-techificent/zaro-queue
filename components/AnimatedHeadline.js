@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function AnimatedHeadline() {
   const [currentText, setCurrentText] = useState(0)
-  const texts = ['Design', 'Strategy', 'Experience', 'Branding']
+  const texts = ['Deliver', 'Instant', 'Support']
 
   useEffect(() => {
     const interval = setInterval(() => {
