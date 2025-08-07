@@ -18,7 +18,7 @@ export default function Home() {
         <HeroSection />
 
         {/* Selected Work Section */}
-        <section className="selected-work">
+        {/* <section className="selected-work">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Selected Work</h2>
@@ -26,7 +26,7 @@ export default function Home() {
 
             <PortfolioCarousel />
           </div>
-        </section>
+        </section> */}
 
         <WhatWeDoSection />
         <OurCapabilitiesSection />
