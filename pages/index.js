@@ -12,14 +12,14 @@ export default function Home() {
     <Layout>
       <div className="site-wrapper">
         <HeroSection />
-        
+
         {/* Selected Work Section */}
         <section className="selected-work">
           <div className="container">
             <div className="section-header">
               <h2 className="section-title">Selected Work</h2>
             </div>
-            
+
             <PortfolioCarousel />
           </div>
         </section>
@@ -90,10 +90,13 @@ export default function Home() {
 
         /* Selected Work Section */
         .selected-work {
-          padding: 100px 0 0 0;
-          background: #000;
+          z-index:2;
+          // padding: 100px 0 0 0;
+          background: #00000000;
           color: #fff;
           width: 100%;
+          transform: translateY(-30%);
+          
         }
 
         .container {
