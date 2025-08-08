@@ -580,7 +580,7 @@ export default function HeroSection() {
 
   .hero-image {
     width: 100%;
-    max-height: 65vh;
+    max-height: 78vh;
     overflow: hidden;
     display: flex;
     justify-content: flex-end;
@@ -590,7 +590,7 @@ export default function HeroSection() {
   .hero-image img {
     width: 100%; /* ✅ Slightly increase width */
     height: auto;
-    max-height: 65vh;
+    max-height: 78vh;
     object-fit: contain; /* or 'cover' if you want cropping */
     object-position: right center;
     transform: none !important;
