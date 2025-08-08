@@ -25,41 +25,41 @@ const MobileStudioStatsSection = () => {
     <section className="studio-stats-mobile">
       <div className="mobile-container">
         {/* Red blur spot - comes first */}
-        <div className="mobile-blur-spot">
+        {/* <div className="mobile-blur-spot">
           <img 
             src="/blur-spot-1011x1024.webp" 
             alt="Blur spot"
             className="mobile-blur-image"
           />
-        </div>
+        </div> */}
 
         {/* Description text - comes second */}
-        <div className="mobile-description">
+        {/* <div className="mobile-description">
           <h3 className="mobile-description-text">
             Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of excellence. These stats offer a glimpse into our design prowess and its real-world impact.
           </h3>
-        </div>
+        </div> */}
 
         {/* Stats - comes third */}
         <div className="mobile-stats">
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">260+</div>
-            <h4 className="mobile-stat-label">Satisfied Clients</h4>
+            <div className="mobile-stat-number">80%</div>
+            <h4 className="mobile-stat-label">Automates  of Calls: Resolves customer queries without human intervention</h4>
           </div>
           
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">40%</div>
-            <h4 className="mobile-stat-label">Client Referrals</h4>
+            <div className="mobile-stat-number">70%</div>
+            <h4 className="mobile-stat-label">Reduces Costs  to  Streamline operations and lower support expenses</h4>
           </div>
           
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">70+</div>
-            <h4 className="mobile-stat-label">Award Recognitions</h4>
+            <div className="mobile-stat-number">+26</div>
+            <h4 className="mobile-stat-label">24/7 Multilingual Support upto 26 languages, Scalable, global, and always available</h4>
           </div>
         </div>
 
         {/* Partner logos - comes last */}
-        <div className="mobile-partner-logos">
+        {/* <div className="mobile-partner-logos"> */}
           {/* First logo - logo-1.svg */}
           {/* <div className="mobile-logo-item">
             <img src="/assets/logo-1.svg" alt="Coiffuré" />
@@ -80,7 +80,7 @@ const MobileStudioStatsSection = () => {
           {/* <div className="mobile-logo-item">
             <img src="/assets/logo-5.svg" alt="MACCHINA" />
           </div> */}
-        </div>
+        {/* </div> */}
       </div>
 
       <style jsx>{`
@@ -249,45 +249,45 @@ const DesktopStudioStatsSection = () => {
             {/* Left container with blur spot and description - elementor-element-eec780e */}
             <div className="left-container">
               {/* Blur spot image - elementor-element-870181f */}
-              <div className="blur-spot-container">
+              {/* <div className="blur-spot-container">
                 <img 
                   src="/blur-spot-1011x1024.webp" 
                   alt="Blur spot"
                   className="blur-spot-image"
                 />
-              </div>
+              </div> */}
 
               {/* Description - elementor-element-05bb38d */}
-              <div className="description-container">
+              {/* <div className="description-container">
                 <h3 className="description-text">
                   Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of excellence. These stats offer a glimpse into our design prowess and its real-world impact.
                 </h3>
-              </div>
+              </div> */}
             </div>
 
             {/* Stats row */}
             <div className="stats-row">
               {/* First stat - elementor-element-8bffe74 */}
               <div className="stat-container">
-                <div className="stat-number">260+</div>
-                <h4 className="stat-label">Satisfied Clients</h4>
+                <div className="stat-number">80%</div>
+                <h4 className="stat-label">Automates  of Calls: Resolves customer queries without human intervention</h4>
               </div>
               
               {/* Second stat - elementor-element-49590fb */}
               <div className="stat-container">
-                <div className="stat-number">40%</div>
-                <h4 className="stat-label">Client Referrals</h4>
+                <div className="stat-number">70%</div>
+                <h4 className="stat-label">Reduces Costs  to  Streamline operations and lower support expenses</h4>
               </div>
               
               {/* Third stat - elementor-element-c314a7c */}
               <div className="stat-container">
-                <div className="stat-number">70+</div>
-                <h4 className="stat-label">Award Recognitions</h4>
+                <div className="stat-number">+26</div>
+                <h4 className="stat-label">24/7 Multilingual Support upto 26 languages, Scalable, global, and always available</h4>
               </div>
             </div>
 
             {/* Partner logos - elementor-element-8e03d4e */}
-            <div className="partner-logos">
+            {/* <div className="partner-logos"> */}
               {/* First logo - logo-1.svg */}
               {/* <div className="logo-item">
                 <img src="/assets/logo-1.svg" alt="Coiffuré" />
@@ -308,7 +308,7 @@ const DesktopStudioStatsSection = () => {
               {/* <div className="logo-item">
                 <img src="/assets/logo-5.svg" alt="MACCHINA" />
               </div> */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       {/* </div> */}
@@ -425,7 +425,7 @@ const DesktopStudioStatsSection = () => {
         .stat-container {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
           text-align: center;
           gap: 10px;
           width: 33%;
@@ -447,6 +447,7 @@ const DesktopStudioStatsSection = () => {
           color: #E9E9E7;
           line-height: 1.2em;
           margin: 0;
+          
         }
 
         .stat-label {
@@ -456,6 +457,7 @@ const DesktopStudioStatsSection = () => {
           color: #E9E9E7;
           margin: 0;
           line-height: 1.3em;
+          text-align:left
         }
 
         /* Partner logos - elementor-element-8e03d4e */
