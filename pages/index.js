@@ -10,6 +10,8 @@ import PricingPlans from '../components/PricingPlans'
 import Footer from '../components/Footer'
 import FAQSection from '../components/FAQSection'
 import ContactSection from '../components/ContactSection'
+import Mic from '../components/mic'
+import LiveDemo from '../components/LiveDemo'
 
 export default function Home() {
   return (
@@ -31,6 +33,8 @@ export default function Home() {
         <WhatWeDoSection />
         <OurCapabilitiesSection />
         {/* <OurGoalsSection /> */}
+        <Mic/>
+        <LiveDemo/>
         <StudioStatsSection />
         <InsightsCarousel />
         <PricingPlans />
