@@ -6,9 +6,9 @@ import OurCapabilitiesSection from '../components/OurCapabilitiesSection'
 import OurGoalsSection from '../components/OurGoalsSection'
 import StudioStatsSection from '../components/StudioStatsSection'
 import InsightsCarousel from '../components/InsightsCarousel'
-import PricingPlans from '../components/PricingPlans'
+import PricingAndFAQSection from '../components/PricingAndFAQSection'
+import ContactUsSection from '../components/ContactUsSection'
 import Footer from '../components/Footer'
-import FAQSection from '../components/FAQSection'
 import ContactSection from '../components/ContactSection'
 import Mic from '../components/mic'
 import LiveDemo from '../components/LiveDemo'
@@ -37,9 +37,9 @@ export default function Home() {
         <LiveDemo/>
         <StudioStatsSection />
         <InsightsCarousel />
-        <PricingPlans />
-        <FAQSection />
-        <ContactSection />
+        <PricingAndFAQSection />
+        <ContactUsSection />
+        {/* <ContactSection /> */}
         <Footer />
       </div>
 
