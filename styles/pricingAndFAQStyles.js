@@ -73,7 +73,7 @@ export const pricingAndFAQStyles = {
 
   planName: {
     color: '#ffffff',
-    fontSize: { xs: '14px', sm: '18px', md: '22px', lg: '28px', xl: '34px' },
+    fontSize: { xs: '14px', sm: '18px', md: '19px', lg: '28px', xl: '34px' },
     fontWeight: 500,
     fontFamily: 'Plus Jakarta Sans, sans-serif',
     fontStyle: 'normal',
@@ -85,7 +85,7 @@ export const pricingAndFAQStyles = {
 
   planPrice: {
     color: '#ffffff',
-    fontSize: { xs: '16px', sm: '18px', md: '24px', lg: '32px', xl: '40px' },
+    fontSize: { xs: '16px', sm: '18px', md: '19px', lg: '25px', xl: '35px' },
     fontWeight: 500,
     fontFamily: 'Plus Jakarta Sans, sans-serif',
     fontStyle: 'normal',
