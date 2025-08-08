@@ -79,7 +79,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </h1>
-            {/* <div className="hero-cta">
+            <div className="hero-cta">
               <a href="#" className="video-link" onClick={handlePlayClick}>
                 <div className="elementor-icon-wrapper">
                   <div className="elementor-icon elementor-animation-pulse-grow">
@@ -88,13 +88,13 @@ export default function HeroSection() {
                 </div>
                 <span className="cta-text">Check out our reel</span>
               </a>
-            </div> */}
+            </div>
             <p className="hero-description">
               Transform customer support with AI agents tailored to your
               business. Always on, always accurate, and always ready to
               assist—without the queue.
             </p>
-            <div className="hero-cta">
+            {/* <div className="hero-cta">
               <a href="#demo" className="ai-cta-button demo">
                 Experience the Demo
               </a>
@@ -105,7 +105,7 @@ export default function HeroSection() {
               <a href="#strategy" className="ai-cta-button strategy">
                 Schedule a Free Strategy Session
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 

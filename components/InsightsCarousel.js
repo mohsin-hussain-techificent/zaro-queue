@@ -7,29 +7,20 @@ const InsightsCarousel = () => {
   const testimonials = [
     {
       id: 1,
-      text: "Zero Queue slashed our support workload by 50% in just one month. Customers love the instant, accurate responses.",
-      author: "Sara D., E-Commerce Operations Lead"
-    },
-    {
-      id: 2,
-      text: "We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly.",
+      text: "We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly",
       author: "Nick M., Tech Startup Founder"
     },
     {
+      id: 2,
+      text: "Zero Queue slashed our support workload by 50% in just one month. Customers love the instant, accurate responses",
+      author: "Sara D., E-Commerce Operations Lead"
+    },
+    {
       id: 3,
-      text: "Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations.",
-      author: "Michael Brown, Founder at Fabriks"
+      text:" We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly",
+      author: "Nick M., Tech Startup Founder"
     },
-    {
-      id: 4,
-      text: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience.",
-      author: "Sarah Johnson, Marketing Lead at Technlogia"
-    },
-    {
-      id: 5,
-      text: "Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations.",
-      author: "Michael Brown, Founder at Fabriks"
-    }
+  
   ]
 
   return (
@@ -38,17 +29,17 @@ const InsightsCarousel = () => {
         {/* Header Section */}
         <div className="reviews-header">
           <div className="reviews-title">
-            <span className="title">Reviews</span>
-            <span className="divider"></span>
+            <span className="title">Customer Success Stories</span>
+            {/* <span className="divider"></span>
             <span className="rating">5.0</span>
             <span style={{
               marginLeft: "3px",
               color: "black"
-            }}>★</span>
+            }}>★</span> */}
           </div>
-          <div className="reviews-description">
+          {/* <div className="reviews-description">
             <p>Their words are a testament to our commitment to excellence and our ability to bring their visions to life. Read on to see how we've made a lasting impact on their brands and projects.</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Testimonials Carousel */}
