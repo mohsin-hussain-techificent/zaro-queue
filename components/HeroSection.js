@@ -600,6 +600,10 @@ export default function HeroSection() {
 
 }
 
+@media (min-width: 393px) and (max-width: 400px) {
+  .hero-image img {
+    max-height: 96vh;
+  }
 
         @media (max-width: 768px) {
           .logo-container {
