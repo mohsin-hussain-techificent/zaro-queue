@@ -1,50 +1,74 @@
-import { useEffect, useState } from "react";
+
+import { useEffect, useState, useRef } from "react";
 
 export default function HeroSection() {
   const [currentText, setCurrentText] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const scrollLockRef = useRef(0); // store scroll pos when modal opens
   const texts = ["Deliver", "Instant", "Support"];
+
+  // Reliable page lock when modal open (works better cross-browser than overflow:hidden)
+  useEffect(() => {
+    if (showModal) {
+      scrollLockRef.current = window.scrollY || window.pageYOffset || 0;
+      // lock body in place
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollLockRef.current}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    } else {
+      // restore
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      // restore scroll position
+      window.scrollTo(0, scrollLockRef.current || 0);
+    }
+    // cleanup on unmount
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollLockRef.current || 0);
+    };
+  }, [showModal]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length);
       setCurrentChar(0);
     }, 2500);
-
     return () => clearInterval(interval);
   }, [texts.length]);
 
   useEffect(() => {
     const charInterval = setInterval(() => {
       setCurrentChar((prev) => {
-        if (prev < texts[currentText].length - 1) {
-          return prev + 1;
-        }
+        if (prev < texts[currentText].length - 1) return prev + 1;
         return prev;
       });
     }, 100);
-
     return () => clearInterval(charInterval);
   }, [currentText, texts]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY || window.pageYOffset || 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (e) => {
+    e.preventDefault();
     setShowModal(true);
   };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  const closeModal = () => setShowModal(false);
 
   const currentDisplayText = texts[currentText].substring(0, currentChar + 1);
 
@@ -110,25 +134,23 @@ export default function HeroSection() {
         </div>
 
         <div className="hero-right"
-        style={{
-          maxHeight: "100vh",
-        }}
-        >
-          <div className="hero-image"
           style={{
             maxHeight: "100vh",
           }}
+        >
+          <div className="hero-image"
+            style={{
+              maxHeight: "100vh",
+            }}
           >
             <img
               src="/assets/GettyImages-1487864067.jpg"
               alt="Hero Background"
               style={{
-                transform: `scale(${1.2 - scrollY * 0.0002}) translateY(${
-                  scrollY * 0.2
-                }px)`,
-                filter: `brightness(${0.9 - scrollY * 0.0002}) contrast(${
-                  1.2 - scrollY * 0.0002
-                })`,
+                transform: `scale(${1.2 - scrollY * 0.0002}) translateY(${scrollY * 0.2
+                  }px)`,
+                filter: `brightness(${0.9 - scrollY * 0.0002}) contrast(${1.2 - scrollY * 0.0002
+                  })`,
               }}
             />
           </div>
@@ -146,27 +168,94 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Video Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
-              <i className="fas fa-times"></i>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Close button is placed *outside* the video frame so it doesn't overlap inside the iframe */}
+            <button className="modal-close" onClick={closeModal} aria-label="Close">
+              <i className="fas fa-times" />
             </button>
+
             <div className="video-container">
               <iframe
-                src="https://www.youtube.com/embed/RXidlUSBhMY?autoplay=1"
+                src="https://www.youtube.com/embed/RXidlUSBhMY?autoplay=1&rel=0"
                 title="Pixel Pier NYC Reel"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-              ></iframe>
+              />
             </div>
           </div>
         </div>
       )}
 
       <style jsx>{`
+        /* Modal Overlay */
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.75);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 3000;
+          overscroll-behavior: none; /* prevent swipe-to-go-back / overscroll */
+          touch-action: none; /* help block touch scrolling on mobile while modal open */
+        }
+
+        /* Modal Content */
+        .modal-content {
+          position: relative;
+          background: transparent; /* we want dark overlay, video itself has border radius */
+          padding: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: visible; /* allow close button to visually sit outside the video frame */
+        }
+
+       .modal-close {
+          position: absolute;
+          top: -18px; /* outside the video top edge */
+          right: -18px; /* outside the video right edge */
+          z-index: 3100; /* above iframe */
+          background: rgba(0, 0, 0, 0.85);
+          color: #fff;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        .modal-close i { font-size: 16px; }
+
+        /* Responsive video — larger on desktop, constrained on small screens */
+        .video-container {
+          width: min(1200px, 92vw); /* max width for desktop; responsive for smaller */
+          aspect-ratio: 16 / 9;     /* keeps proper video aspect ratio */
+          max-height: 80vh;         /* ensure it never exceeds viewport height */
+          border-radius: 12px;
+          overflow: hidden;
+          background: #000;
+          box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+        }
+
+        .video-container iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+          display: block;
+        }
+
         .hero-cta {
           display: flex;
           flex-wrap: wrap;
@@ -540,6 +629,18 @@ export default function HeroSection() {
           }
         }
         @media (max-width: 480px) {
+         .modal-close {
+            top: -14px;
+            right: -14px;
+            width: 36px;
+            height: 36px;
+          }
+          .video-container {
+            width: 96vw;
+            aspect-ratio: 16 / 9;
+            max-height: 70vh;
+          }
+            
           .hero-right {
             height: 40vh;
             max-width: 100%;

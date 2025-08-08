@@ -1,5 +1,6 @@
+
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -7,7 +8,7 @@ const InsightsCarousel = () => {
   const testimonials = [
     {
       id: 1,
-      text: "We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly",
+      text: "We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly ",
       author: "Nick M., Tech Startup Founder"
     },
     {
@@ -17,10 +18,15 @@ const InsightsCarousel = () => {
     },
     {
       id: 3,
-      text:" We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly",
+      text: " We trained our AI agent in hours, and it now handles 90% of our inquiries flawlessly",
       author: "Nick M., Tech Startup Founder"
     },
-  
+    {
+      id: 4,
+      text: "Zero Queue slashed our support workload by 50% in just one month. Customers love the instant, accurate responses",
+      author: "Sara D., E-Commerce Operations Lead"
+    },
+
   ]
 
   return (
@@ -43,11 +49,16 @@ const InsightsCarousel = () => {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="testimonials-carousel">
+        <div className="testimonials-carou sel">
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={50}
             slidesPerView={3}
+            loop={true}
+            autoplay={{
+              delay: 3000,       // 3 seconds between slides
+              disableOnInteraction: false, // keep autoplay after swiping
+            }}
             pagination={{
               clickable: true,
               type: 'bullets',
