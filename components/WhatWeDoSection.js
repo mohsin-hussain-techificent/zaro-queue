@@ -40,11 +40,11 @@ export default function WhatWeDoSection() {
           <div className="section-label">What We Do</div>
           <div className="main-text" id="fade-text">
             <p className={`text-line ${fadeOpacity < 0.2 ? 'faded' : ''}`} style={{ opacity: Math.max(0.1, Math.min(1, fadeOpacity * 2)) }}>
-              Ready to Revolutionize Your Customer
+              Ready to Revolutionize Your Customer  Support?
             </p>
-            <p className={`text-line ${fadeOpacity < 0.3 ? 'faded' : ''}`} style={{ opacity: Math.max(0.1, Math.min(1, (fadeOpacity - 0.1) * 2)) }}>
-              Support?
-            </p>
+            {/* <p className={`text-line ${fadeOpacity < 0.3 ? 'faded' : ''}`} style={{ opacity: Math.max(0.1, Math.min(1, (fadeOpacity - 0.1) * 2)) }}>
+             
+            </p> */}
             <p className={`text-line ${fadeOpacity < 0.4 ? 'faded' : ''}`} style={{ opacity: Math.max(0.1, Math.min(1, (fadeOpacity - 0.2) * 2)) }}>
               Schedule a free consultation
             </p>
@@ -64,7 +64,8 @@ export default function WhatWeDoSection() {
       <style jsx>{`
   /* What We Do Section */
   .what-we-do {
-    padding: 60px 0; /* smaller default padding for mobile */
+    padding-top: 60px; /* smaller default padding for mobile */
+    padding-bottom:0px;
     background: #f5f5f5;
     color: #333;
     width: 100%;
@@ -141,7 +142,9 @@ export default function WhatWeDoSection() {
   /* Large desktop styles */
   @media (min-width: 1200px) {
     .what-we-do {
-      padding: 120px 0;
+      padding-top: 50px ;
+      padding-bottom: 0px ;
+
     }
 
     .what-we-do-content {
