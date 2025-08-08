@@ -152,18 +152,26 @@ const PricingAndFAQSection = () => {
                 sx={pricingAndFAQStyles.accordion}
               >
                 <AccordionSummary 
-                  expandIcon={
-                    openFAQIndex === index ? (
-                      <CloseIcon sx={{ color: '#ffffff', fontSize: { xs: '20px', sm: '24px', md: '28px' } }} />
-                    ) : (
-                      <AddIcon sx={{ color: '#ffffff', fontSize: { xs: '20px', sm: '24px', md: '28px' } }} />
-                    )
-                  }
+                  expandIcon={null}
                   sx={pricingAndFAQStyles.accordionSummary}
                 >
                   <Typography sx={pricingAndFAQStyles.questionText}>
                     {faq.question}
                   </Typography>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    fontSize: { xs: '20px', sm: '24px', md: '28px' },
+                    ml: 'auto'
+                  }}>
+                    {openFAQIndex === index ? (
+                      <CloseIcon />
+                    ) : (
+                      <AddIcon />
+                    )}
+                  </Box>
                 </AccordionSummary>
                 <AccordionDetails sx={pricingAndFAQStyles.accordionDetails}>
                   <Typography sx={pricingAndFAQStyles.answerText}>
