@@ -58,7 +58,9 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Section - Dark Theme */}
-      <section className="hero-section">
+      <section className="hero-section" style={{
+        maxHeight: "100vh",
+      }}>
         <div className="hero-left">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -107,8 +109,16 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero-right">
-          <div className="hero-image">
+        <div className="hero-right"
+        style={{
+          maxHeight: "100vh",
+        }}
+        >
+          <div className="hero-image"
+          style={{
+            maxHeight: "100vh",
+          }}
+          >
             <img
               src="/assets/GettyImages-1487864067.jpg"
               alt="Hero Background"
