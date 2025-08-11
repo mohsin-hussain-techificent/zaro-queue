@@ -1,5 +1,5 @@
-
 import { useEffect, useState, useRef } from "react";
+import LogoComponenntSVG from "../public/svg/logo";
 
 export default function HeroSection() {
   const [currentText, setCurrentText] = useState(0);
@@ -8,6 +8,7 @@ export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
   const scrollLockRef = useRef(0); // store scroll pos when modal opens
   const texts = ["Deliver", "Instant", "Support"];
+  const [isDarkBg, setIsDarkBg] = useState(false);
 
   // Reliable page lock when modal open (works better cross-browser than overflow:hidden)
   useEffect(() => {
@@ -59,7 +60,8 @@ export default function HeroSection() {
   }, [currentText, texts]);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY || window.pageYOffset || 0);
+    const handleScroll = () =>
+      setScrollY(window.scrollY || window.pageYOffset || 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -72,19 +74,151 @@ export default function HeroSection() {
 
   const currentDisplayText = texts[currentText].substring(0, currentChar + 1);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentText((prev) => (prev + 1) % texts.length);
+      setCurrentChar(0);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [texts.length]);
+
+  useEffect(() => {
+    const charInterval = setInterval(() => {
+      setCurrentChar((prev) => {
+        if (prev < texts[currentText].length - 1) return prev + 1;
+        return prev;
+      });
+    }, 100);
+    return () => clearInterval(charInterval);
+  }, [currentText, texts]);
+
+  useEffect(() => {
+    const handleScroll = () =>
+      setScrollY(window.scrollY || window.pageYOffset || 0);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // IMPROVED LOGO DETECTION LOGIC
+  useEffect(() => {
+    function detectBackgroundColor() {
+      const logoContainer = document.getElementById("logoContainer");
+      if (!logoContainer) return;
+
+      const logoRect = logoContainer.getBoundingClientRect();
+      const logoCenter = {
+        x: logoRect.left + logoRect.width / 2,
+        y: logoRect.top + logoRect.height / 2,
+      };
+
+      // Temporarily hide logo to detect what's behind it
+      logoContainer.style.pointerEvents = "none";
+      const elementBehind = document.elementFromPoint(
+        logoCenter.x,
+        logoCenter.y
+      );
+      logoContainer.style.pointerEvents = "auto";
+
+      if (elementBehind) {
+        const computedStyle = window.getComputedStyle(elementBehind);
+        let backgroundColor = computedStyle.backgroundColor;
+
+        // If transparent, check parent elements
+        let currentElement = elementBehind;
+        while (
+          (backgroundColor === "rgba(0, 0, 0, 0)" ||
+            backgroundColor === "transparent" ||
+            backgroundColor === "") &&
+          currentElement.parentElement
+        ) {
+          currentElement = currentElement.parentElement;
+          backgroundColor =
+            window.getComputedStyle(currentElement).backgroundColor;
+        }
+
+        const isDark = isColorDark(backgroundColor);
+        setIsDarkBg(isDark); // Use React state instead of body class
+
+        // Debug logging (remove in production)
+        console.log("Background color detected:", backgroundColor);
+        console.log("Is dark:", isDark);
+      }
+    }
+
+    function isColorDark(color) {
+      // Handle default case
+      if (!color || color === "transparent" || color === "rgba(0, 0, 0, 0)") {
+        return false; // Assume light background if transparent
+      }
+
+      let r, g, b;
+
+      if (color.startsWith("rgba") || color.startsWith("rgb")) {
+        const matches = color.match(/\d+/g);
+        if (matches && matches.length >= 3) {
+          r = parseInt(matches[0]);
+          g = parseInt(matches[1]);
+          b = parseInt(matches[2]);
+        } else {
+          return false;
+        }
+      } else if (color.startsWith("#")) {
+        const hex = color.slice(1);
+        r = parseInt(hex.substr(0, 2), 16);
+        g = parseInt(hex.substr(2, 2), 16);
+        b = parseInt(hex.substr(4, 2), 16);
+      } else {
+        // Handle named colors
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = 1;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = color;
+        ctx.fillRect(0, 0, 1, 1);
+        const imageData = ctx.getImageData(0, 0, 1, 1).data;
+        r = imageData[0];
+        g = imageData[1];
+        b = imageData[2];
+      }
+
+      // Calculate luminance
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      return luminance < 0.5;
+    }
+
+    // Run detection
+    detectBackgroundColor();
+
+    // Attach event listeners
+    window.addEventListener("scroll", detectBackgroundColor, { passive: true });
+    window.addEventListener("resize", detectBackgroundColor);
+
+    // Run with delay to ensure everything is loaded
+    const timeout = setTimeout(detectBackgroundColor, 100);
+
+    return () => {
+      window.removeEventListener("scroll", detectBackgroundColor);
+      window.removeEventListener("resize", detectBackgroundColor);
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <>
       {/* Logo Only */}
-      <div className="logo-container">
+      <div className="logo-container" id="logoContainer">
         <div className="logo">
-          <img src="/assets/logo-light.svg" alt="Pixel Pier NYC" />
+          <img src="/black_logo.svg" style={{ opacity: isDarkBg ? 0 : 1 }} />
+          <img src="/white_logo.svg" style={{ opacity: isDarkBg ? 1 : 0 }} />
         </div>
       </div>
 
       {/* Hero Section - Dark Theme */}
-      <section className="hero-section" style={{
-        maxHeight: "100vh",
-      }}>
+      <section
+        className="hero-section"
+        style={{
+          maxHeight: "100vh",
+        }}
+      >
         <div className="hero-left">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -133,12 +267,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero-right"
+        <div
+          className="hero-right"
           style={{
             maxHeight: "100vh",
           }}
         >
-          <div className="hero-image"
+          <div
+            className="hero-image"
             style={{
               maxHeight: "100vh",
             }}
@@ -147,14 +283,16 @@ export default function HeroSection() {
               src="/assets/GettyImages-1487864067.jpg"
               alt="Hero Background"
               style={{
-                transform: `scale(${1.2 - scrollY * 0.0002}) translateY(${scrollY * 0.2
-                  }px)`,
-                filter: `brightness(${0.9 - scrollY * 0.0002}) contrast(${1.2 - scrollY * 0.0002
-                  })`,
+                transform: `scale(${1.2 - scrollY * 0.0002}) translateY(${
+                  scrollY * 0.2
+                }px)`,
+                filter: `brightness(${0.9 - scrollY * 0.0002}) contrast(${
+                  1.2 - scrollY * 0.0002
+                })`,
               }}
             />
           </div>
-          <div className="social-icons">
+          {/* <div className="social-icons">
             <a href="#" className="social-icon">
               <i className="fab fa-instagram"></i>
             </a>
@@ -164,7 +302,7 @@ export default function HeroSection() {
             <a href="#" className="social-icon">
               <i className="fab fa-twitter"></i>
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -177,7 +315,11 @@ export default function HeroSection() {
             aria-modal="true"
           >
             {/* Close button is placed *outside* the video frame so it doesn't overlap inside the iframe */}
-            <button className="modal-close" onClick={closeModal} aria-label="Close">
+            <button
+              className="modal-close"
+              onClick={closeModal}
+              aria-label="Close"
+            >
               <i className="fas fa-times" />
             </button>
 
@@ -319,10 +461,34 @@ export default function HeroSection() {
           z-index: 1000;
           padding: 30px 40px;
         }
+          .logo {
+  position: relative;
+  height: 40px;
+}
 
-        .logo img {
-          height: 40px;
-        }
+      .logo img {
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+  .logo .black-logo {
+  opacity: 1;
+}
+  .logo .white-logo {
+  opacity: 0;
+}
+
+.dark-bg .logo .black-logo {
+  opacity: 0;
+}
+
+.dark-bg .logo .white-logo {
+  opacity: 1;
+}
+
+
 
         /* Hero Section - Dark Theme */
         .hero-section {

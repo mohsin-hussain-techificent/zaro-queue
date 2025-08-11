@@ -3,7 +3,7 @@ export default function OurCapabilitiesSection() {
     <section className="our-capabilities">
       <div className="container">
         <div className="capabilities-header">
-          <div className="section-label">CORE SECTION</div>
+          <div className="section-label">CORE SECTIONS</div>
         </div>
         <div className="capabilities-grid">
           <div className="capabilities-row">
@@ -14,10 +14,10 @@ export default function OurCapabilitiesSection() {
                   alt="Award-Winning Design"
                 />
               </div>
-              <h3 className="capability-title">Train Your Agent
-              </h3>
+              <h3 className="capability-title">Train Your Agent</h3>
               <p className="capability-description">
-                You will provide the business info from your side and train the agents for you hassle free
+                You will provide the business info from your side and train the
+                agents for you hassle free
                 {/* ➤ <strong>Automates 80% of Calls: </strong>Resolves customer queries without human intervention.<br />
                 ➤ <strong>Reduces Costs by Up to 70%: </strong>Streamline operations and lower support expenses.<br />
                 ➤ <strong>24/7 Multilingual Support upto 26 languages:</strong> Scalable, global, and always available.<br />
@@ -43,16 +43,15 @@ export default function OurCapabilitiesSection() {
                   alt="Brand Strategy"
                 />
               </div>
-              <h3 className="capability-title">Seamless Integration
-              </h3>
+              <h3 className="capability-title">Seamless Integration</h3>
               <p className="capability-description">
-                Connect effortlessly with your phone system using Plivo SIP and ElevenLabs AI technology
+                Connect effortlessly with your phone system using Plivo SIP and
+                ElevenLabs AI technology
                 {/* ➤ <strong>E-Commerce: </strong>Track orders, manage returns, and answer FAQs instantly.<br />
                 ➤ <strong>Healthcare: </strong>Schedule appointments and clarify insurance questions. <br />
                 ➤ <strong>Real Estate: </strong>Respond to listing inquiries and pre-qualify leads.<br />
                 ➤ <strong>SaaS: </strong>Guide users through onboarding, feature explanations, and password resets.<br />
                 ➤ <strong>Services: </strong>Handle bookings, cancellations, and pricing queries effortlessly.<br /> */}
-
                 {/* Brand strategy is the blueprint for how a company presents
                 itself to the world. A well-crafted strategy lays the ➤{" "}
                 <strong>Foundation</strong> for consistent brand experiences
@@ -76,13 +75,14 @@ export default function OurCapabilitiesSection() {
               </div>
               <h3 className="capability-title">Launch Instantly</h3>
               <p className="capability-description">
-                Deploy your AI agent to manage customer calls 24/7 with zero downtime
+                Deploy your AI agent to manage customer calls 24/7 with zero
+                downtime
                 {/* Development is the art of crafting dynamic, interactive, and
                 user-friendly ➤ <strong>Websites</strong> and ➤{" "}
                 <strong>Apps</strong>. It's about crafting seamless digital
                 experiences that captivate audiences across various platforms. */}
               </p>
-                <img
+              <img
                 src="/assets/arrow-link.svg"
                 alt="Future-Proof"
                 className="capability-svg-icon"
@@ -98,13 +98,14 @@ export default function OurCapabilitiesSection() {
               </div>
               <h3 className="capability-title">Smart Escalation</h3>
               <p className="capability-description">
-                Automatically route complex queries to your human team for a flawless handover
+                Automatically route complex queries to your human team for a
+                flawless handover
                 {/* From cultivating engaging ➤ Social Media presence to precise
                 direct and ➤ <strong>Product Marketing</strong>, we reach your ➤{" "}
                 <strong>Target Audience</strong> with compelling ➤{" "}
                 <strong>Content Creation</strong> strategies. */}
               </p>
-                <img
+              <img
                 src="/assets/arrow-link.svg"
                 alt="Proven Marketing"
                 className="capability-svg-icon"
@@ -117,7 +118,7 @@ export default function OurCapabilitiesSection() {
       <style jsx>{`
         /* Our Capabilities Section */
         .our-capabilities {
-          padding: 120px 0;
+          padding: 70px 0;
           background: #f5f5f5;
           border-top: none;
         }
@@ -177,7 +178,6 @@ export default function OurCapabilitiesSection() {
           height: 38px;
           opacity: 0;
           transition: opacity 0.3s ease;
-          
         }
 
         .capability-card:hover .capability-svg-icon {
@@ -221,7 +221,7 @@ export default function OurCapabilitiesSection() {
         }
 
         .section-label {
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 500;
           color: #666;
           text-transform: uppercase;
@@ -346,6 +346,6 @@ export default function OurCapabilitiesSection() {
           }
         }
       `}</style>
-    </section >
+    </section>
   );
 }

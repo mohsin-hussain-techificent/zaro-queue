@@ -1,4 +1,6 @@
-import { Box, Container, Grid, Typography, Link } from '@mui/material';
+import { Box, Container, Grid, Typography, Link } from "@mui/material";
+
+import { pricingAndFAQStyles } from "../styles/pricingAndFAQStyles";
 
 export default function Footer() {
   return (
@@ -7,8 +9,9 @@ export default function Footer() {
       sx={{
         py: 6,
         px: 2,
-        backgroundColor: '#fff',
-        borderTop: '1px solid #eee',
+        backgroundColor: "#fff",
+        borderTop: "1px solid #eee",
+        pb: 12,
       }}
     >
       <Grid
@@ -23,24 +26,41 @@ export default function Footer() {
             {/* Logo */}
             <Box
               component="img"
-              src="assets/logo-symbol.svg"
+              src="/black_logo.svg"
               alt="Logo"
               sx={{
                 height: 40,
-                width: 'auto',
+                width: "auto",
                 mr: 2,
               }}
             />
 
             <Box sx={{ display: "flex", mt: 2, width: "100%" }}>
               <Box sx={{ width: "80%" }}>
-
                 <Typography
                   // variant="h6"
-                  sx={{ flex: '1 1 auto', color: 'black', fontSize: { xs: "1.3rem", sm: "2.5rem" } }}
+                  sx={{
+                    flex: "1 1 auto",
+                    fontSize: { xs: "1.3rem", sm: "2.5rem" },
+
+                    color: "black",
+
+                    fontSize: {
+                      xs: "24px",
+                      sm: "28px",
+                      md: "32px",
+                      lg: "36px",
+                      xl: "42px",
+                    },
+                    fontWeight: 300,
+                    fontFamily: "Plus Jakarta Sans, sans-serif",
+                    fontStyle: "normal",
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                  }}
                 >
                   Schedule a free consultation to see Zero Queue in action and
-                  discover how it can transform your business
+                  discover how it can transform your business.
                 </Typography>
               </Box>
 
@@ -50,7 +70,7 @@ export default function Footer() {
                 viewBox="0 0 40 40"
                 sx={{
                   height: { xs: 24, sm: 32, md: 40 },
-                  width: 'auto',
+                  width: "auto",
                   flexShrink: 0,
                   ml: 2,
                 }}
@@ -65,29 +85,33 @@ export default function Footer() {
           </Box>
         </Grid>
 
-
         <Grid item xs={12} md={12}>
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: 'column', sm: "row", md: 'row' },
-              alignItems: 'center',
+              flexDirection: { xs: "column", sm: "row", md: "row" },
+              alignItems: "center",
               justifyContent: "space-between",
-              gap: 2
+              gap: 2,
             }}
           >
             <Typography variant="body2" sx={{ color: "#5F6567" }}>
-              ©2025 VamTam. All rights reserved.
+              ©2025 Zero Queue. All rights reserved.
             </Typography>
-            <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap={0.5}
+            >
               {/* First line: number + email */}
               <Box display="flex" alignItems="center" gap={1}>
-                <Typography variant="body2" sx={{ color: "black" }}>
+                {/* <Typography variant="body2" sx={{ color: "black" }}>
                   1-800-356-8933 |
-                </Typography>
+                </Typography> */}
 
                 <Link
-                  href="mailto:studio@exapler.com"
+                  href="mailto:info@zer0q.com"
                   variant="body2"
                   sx={{ color: "black", textDecoration: "none" }}
                 >
@@ -96,15 +120,20 @@ export default function Footer() {
               </Box>
 
               {/* Second line: address */}
-              <Typography variant="body2" sx={{ color: "black", textAlign: "center" }}>
+              {/* <Typography
+                variant="body2"
+                sx={{ color: "black", textAlign: "center" }}
+              >
                 Seventh Ave, New York City
-              </Typography>
+              </Typography> */}
             </Box>
-            <Link href="#" variant="body2"
+            {/* <Link
+              href="#"
+              variant="body2"
               sx={{ color: "black", textDecoration: "none" }}
             >
               Privacy Policy
-            </Link>
+            </Link> */}
           </Box>
         </Grid>
       </Grid>
