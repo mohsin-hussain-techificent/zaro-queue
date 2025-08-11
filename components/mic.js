@@ -52,6 +52,7 @@ export default function Mic() {
           letterSpacing: 1,
           color: "black",
           mb: isMobile ? 3 : 4,
+          fontSize: "16px",
         }}
       >
         INDUSTRY APPLICATIONS
@@ -71,9 +72,9 @@ export default function Mic() {
             src={active.img}
             alt="Industry"
             width={isMobile ? 50 : 100}
-            height={isMobile ? 50 : 100} 
+            height={isMobile ? 50 : 100}
             style={{
-              height: "auto", 
+              height: "auto",
             }}
           />
         </Box>
@@ -91,8 +92,8 @@ export default function Mic() {
 
           <Stack
             direction="row"
-            spacing={isMobile ? 2 : 1.5} 
-            rowGap={isMobile ? 1.5 : 1} 
+            spacing={isMobile ? 2 : 1.5}
+            rowGap={isMobile ? 1.5 : 1}
             sx={{
               flexWrap: "wrap",
               mt: isMobile ? 4 : 3,
