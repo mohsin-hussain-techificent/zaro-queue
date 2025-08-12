@@ -1,21 +1,49 @@
 import { useState } from "react";
 import { Box, Typography, Button, Container, TextField } from "@mui/material";
+import emailjs from "emailjs-com";
 import { pricingAndFAQStyles } from "../styles/pricingAndFAQStyles";
 
 const ContactUsSection = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const validateEmail = (value) => {
-    // Simple email regex pattern
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
-  };
+  const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setEmail(value);
     setError(value.length > 0 && !validateEmail(value));
+  };
+
+  const handleSubmit = async () => {
+    if (!validateEmail(email)) {
+      setError(true);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        "service_1i6ely6",    
+        "template_oh86qsg",   
+        {
+          name: "New Subscriber",
+          email: email,
+          message: "User entered their email for contact.",
+          title: "Email Subscription"
+        },
+        "WP6glTR9m0fUJPRUL"    
+      );
+      alert("Email sent successfully!");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send email. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,7 +70,13 @@ const ContactUsSection = () => {
               error={error}
               helperText={error ? "Please enter a valid email address" : ""}
             />
-            <Button sx={pricingAndFAQStyles.subscribeButton}>Subscribe</Button>
+            <Button
+              sx={pricingAndFAQStyles.subscribeButton}
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Get in touch"}
+            </Button>
           </Box>
 
           <Typography sx={pricingAndFAQStyles.contactFooter}>
