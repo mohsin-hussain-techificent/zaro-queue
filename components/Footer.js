@@ -89,53 +89,38 @@ export default function Footer() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row", md: "row" },
+              flexDirection: { xs: "column", sm: "row" },
               alignItems: "center",
               justifyContent: "space-between",
               gap: 2,
             }}
           >
-            <Typography variant="body2" sx={{ color: "#5F6567" }}>
+            <Link
+              href="mailto:info@zer0q.com"
+              variant="body2"
+              sx={{
+                color: "black",
+                textDecoration: "none",
+                order: { xs: 2, sm: 1 },
+              }}
+            >
+              info@zer0q.com
+            </Link>
+
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#5F6567",
+                textAlign: "center",
+                flexGrow: 1,
+                order: { xs: 1, sm: 2 },
+              }}
+            >
               ©2025 Zero Queue. All rights reserved.
             </Typography>
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              gap={0.5}
-            >
-              {/* First line: number + email */}
-              <Box display="flex" alignItems="center" gap={1}>
-                {/* <Typography variant="body2" sx={{ color: "black" }}>
-                  1-800-356-8933 |
-                </Typography> */}
-
-                <Link
-                  href="mailto:info@zer0q.com"
-                  variant="body2"
-                  sx={{ color: "black", textDecoration: "none" }}
-                >
-                  studio@exapler.com
-                </Link>
-              </Box>
-
-              {/* Second line: address */}
-              {/* <Typography
-                variant="body2"
-                sx={{ color: "black", textAlign: "center" }}
-              >
-                Seventh Ave, New York City
-              </Typography> */}
-            </Box>
-            {/* <Link
-              href="#"
-              variant="body2"
-              sx={{ color: "black", textDecoration: "none" }}
-            >
-              Privacy Policy
-            </Link> */}
           </Box>
         </Grid>
+
       </Grid>
     </Box>
   );
