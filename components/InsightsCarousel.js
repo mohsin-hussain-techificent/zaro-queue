@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
 const InsightsCarousel = () => {
   const testimonials = [
@@ -26,6 +27,9 @@ const InsightsCarousel = () => {
       author: "Sara D., E-Commerce Operations Lead",
     },
   ];
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <section className="reviews-section">
@@ -33,7 +37,19 @@ const InsightsCarousel = () => {
         {/* Header Section */}
         <div className="reviews-header">
           <div className="reviews-title">
-            <span className="title">Customer Success Stories</span>
+            {/* <span className="title">Customer Success Stories</span> */}
+            <Typography
+              variant="overline"
+              component={"span"}
+              sx={{
+                letterSpacing: 1,
+                color: "black",
+                mb: isMobile ? 3 : 4,
+                fontSize: "16px",
+              }}
+            >
+              Customer Success Stories
+            </Typography>
             {/* <span className="divider"></span>
             <span className="rating">5.0</span>
             <span style={{
@@ -54,7 +70,9 @@ const InsightsCarousel = () => {
             slidesPerView={3}
             loop={true}
             autoplay={{
-              delay: 3000, // 3 seconds between slides
+              // delay: 3000,
+              delay: 3000000000000,
+
               disableOnInteraction: false, // keep autoplay after swiping
             }}
             pagination={{
@@ -91,7 +109,32 @@ const InsightsCarousel = () => {
                     <div className="quote-mark">
                       <img src="/Quote.svg" alt="Quote" />
                     </div>
-                    <div className="testimonial-text">{testimonial.text}</div>
+                    {/* <div className="testimonial-text">{testimonial.text}</div> */}
+
+                    <Typography
+                      sx={(theme) => ({
+                        fontFamily: '"Plus Jakarta Sans", sans-serif',
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "1.5em",
+                        color: "#000",
+                        margin: 0,
+                        flex: 1,
+                        fontSize: "10px",
+                        [theme.breakpoints.up("sm")]: {
+                          fontSize: "14px",
+                        },
+                        [theme.breakpoints.up("md")]: {
+                          fontSize: "16px",
+                        },
+                        [theme.breakpoints.up("lg")]: {
+                          fontSize: "18px",
+                        },
+                      })}
+                    >
+                      {testimonial.text}
+                    </Typography>
+
                     <div className="testimonial-author">
                       — {testimonial.author}
                     </div>
@@ -137,9 +180,10 @@ const InsightsCarousel = () => {
         .title {
           font-family: "Plus Jakarta Sans", sans-serif;
           font-size: clamp(16px, 0.8vw, 22px);
-          font-weight: 500;
+          // font-weight: 500;
           line-height: 1.2em;
           color: #000;
+          font-weight: bold;
         }
 
         .divider {
@@ -214,9 +258,9 @@ const InsightsCarousel = () => {
 
         .testimonial-text {
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-size: clamp(20px, 0.9vw, 28px);
-          font-weight: 400;
-          font-style: normal;
+          font-size: clamp(18px, 0.9vw, 10px);
+          // font-weight: 400;
+          font-style: Regular;
           line-height: 1.5em;
           color: #000;
           margin: 0;

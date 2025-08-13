@@ -21,7 +21,7 @@ export const VoiceProvider = ({ children }) => {
   });
 
   // ElevenLabs Agent ID - this is the specific voice agent you want to connect to
-  const AGENT_ID = "ZvAwcehlvHp8ijfiLbdR";
+  const AGENT_ID = process.env.NEXT_PUBLIC_AGENNT_ID;
 
   const showNotification = (message, type = "info") => {
     setNotification({ show: true, message, type });

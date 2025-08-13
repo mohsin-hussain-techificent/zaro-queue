@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: "export",
   images: {
-    domains: ['localhost'],
-    unoptimized: true
+    domains: ["localhost"],
+    unoptimized: true,
   },
   // Enable static exports for deployment
   trailingSlash: true,
@@ -18,18 +19,18 @@ const nextConfig = {
       test: /\.(png|jpe?g|gif|svg)$/i,
       use: [
         {
-          loader: 'url-loader',
+          loader: "url-loader",
           options: {
             limit: 8192,
-            publicPath: '/_next/static/images/',
-            outputPath: 'static/images/',
+            publicPath: "/_next/static/images/",
+            outputPath: "static/images/",
           },
         },
       ],
-    })
+    });
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;
