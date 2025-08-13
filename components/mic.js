@@ -53,6 +53,7 @@ export default function Mic() {
           color: "black",
           mb: isMobile ? 3 : 4,
           fontSize: "16px",
+          fontFamily: '"Plus Jakarta Sans", sans-serif',
         }}
       >
         INDUSTRY APPLICATIONS
@@ -85,6 +86,7 @@ export default function Mic() {
               fontSize: isMobile ? "1rem" : "1.2rem",
               fontWeight: 400,
               color: "black",
+              fontFamily: '"Plus Jakarta Sans", sans-serif',
             }}
           >
             {active.title}
@@ -110,6 +112,7 @@ export default function Mic() {
                   border: "1px solid black",
                   bgcolor: active.id === item.id ? "black" : "white",
                   color: active.id === item.id ? "white" : "black",
+                  fontFamily: '"Plus Jakarta Sans", sans-serif',
                   "&:hover": {
                     bgcolor: active.id === item.id ? "black" : "#f0f0f0",
                   },
