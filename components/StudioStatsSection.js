@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const StudioStatsSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -9,8 +9,8 @@ const StudioStatsSection = () => {
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   if (isMobile) {
@@ -25,76 +25,85 @@ const MobileStudioStatsSection = () => {
     <section className="studio-stats-mobile">
       <div className="mobile-container">
         {/* Red blur spot - comes first */}
-        <div className="mobile-blur-spot">
+        {/* <div className="mobile-blur-spot">
           <img 
             src="/blur-spot-1011x1024.webp" 
             alt="Blur spot"
             className="mobile-blur-image"
           />
-        </div>
+        </div> */}
 
         {/* Description text - comes second */}
-        <div className="mobile-description">
+        {/* <div className="mobile-description">
           <h3 className="mobile-description-text">
             Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of excellence. These stats offer a glimpse into our design prowess and its real-world impact.
           </h3>
-        </div>
+        </div> */}
 
         {/* Stats - comes third */}
         <div className="mobile-stats">
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">260+</div>
-            <h4 className="mobile-stat-label">Satisfied Clients</h4>
+            <div className="mobile-stat-number">80%</div>
+            <h4 className="mobile-stat-label">
+              Automates of Calls: Resolves customer queries without human
+              intervention
+            </h4>
           </div>
-          
+
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">40%</div>
-            <h4 className="mobile-stat-label">Client Referrals</h4>
+            <div className="mobile-stat-number">70%</div>
+            <h4 className="mobile-stat-label">
+              Reduces Costs to Streamline operations and lower support expenses
+            </h4>
           </div>
-          
+
           <div className="mobile-stat-item">
-            <div className="mobile-stat-number">70+</div>
-            <h4 className="mobile-stat-label">Award Recognitions</h4>
+            <div className="mobile-stat-number">+26</div>
+            <h4 className="mobile-stat-label">
+              24/7 Multilingual Support upto 26 languages, Scalable, global, and
+              always available
+            </h4>
           </div>
         </div>
 
         {/* Partner logos - comes last */}
-        <div className="mobile-partner-logos">
-          {/* First logo - logo-1.svg */}
-          {/* <div className="mobile-logo-item">
+        {/* <div className="mobile-partner-logos"> */}
+        {/* First logo - logo-1.svg */}
+        {/* <div className="mobile-logo-item">
             <img src="/assets/logo-1.svg" alt="Coiffuré" />
           </div> */}
-          {/* Second logo - logo-2.svg */}
-          {/* <div className="mobile-logo-item">
+        {/* Second logo - logo-2.svg */}
+        {/* <div className="mobile-logo-item">
             <img src="/assets/logo-2.svg" alt="Tecnologia" />
           </div> */}
-          {/* Third logo - logo-3.svg */}
-          {/* <div className="mobile-logo-item">
+        {/* Third logo - logo-3.svg */}
+        {/* <div className="mobile-logo-item">
             <img src="/assets/logo-3.svg" alt="FABRIK" />
           </div> */}
-          {/* Fourth logo - logo-4.svg */}
-          {/* <div className="mobile-logo-item">
+        {/* Fourth logo - logo-4.svg */}
+        {/* <div className="mobile-logo-item">
             <img src="/assets/logo-4.svg" alt="NUMÉRIQUE" />
           </div> */}
-          {/* Fifth logo - logo-5.svg */}
-          {/* <div className="mobile-logo-item">
+        {/* Fifth logo - logo-5.svg */}
+        {/* <div className="mobile-logo-item">
             <img src="/assets/logo-5.svg" alt="MACCHINA" />
           </div> */}
-        </div>
+        {/* </div> */}
       </div>
 
       <style jsx>{`
         .studio-stats-mobile {
           background: #000;
-          background-image: url('/GettyImages-1487864067-edit.jpg');
+          background-image: url("/GettyImages-1487864067-edit.jpg");
           background-position: bottom left;
           background-repeat: no-repeat;
-          background-size: contain;
+          background-size: cover;
           color: #fff;
-          padding: 60px 20px;
+          padding: 40px 20px;
           min-height: 100vh;
           display: flex;
           flex-direction: column;
+          justify-content: center;
           align-items: center;
         }
 
@@ -105,6 +114,7 @@ const MobileStudioStatsSection = () => {
           flex-direction: column;
           align-items: center;
           gap: 40px;
+          padding: 20px 0;
         }
 
         .mobile-blur-spot {
@@ -132,7 +142,7 @@ const MobileStudioStatsSection = () => {
           font-size: 18px;
           font-weight: 400;
           line-height: 1.5em;
-          color: #E9E9E7;
+          color: #e9e9e7;
           margin: 0;
           text-align: center;
         }
@@ -140,7 +150,7 @@ const MobileStudioStatsSection = () => {
         .mobile-stats {
           display: flex;
           flex-direction: column;
-          gap: 30px;
+          gap: 35px;
           width: 100%;
           margin-bottom: 20px;
         }
@@ -150,25 +160,26 @@ const MobileStudioStatsSection = () => {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          gap: 8px;
+          gap: 12px;
         }
 
         .mobile-stat-number {
           font-family: "Plus Jakarta Sans", Sans-serif;
           font-size: 60px;
           font-weight: 300;
-          color: #E9E9E7;
+          color: #e9e9e7;
           line-height: 1.2em;
           margin: 0;
         }
 
         .mobile-stat-label {
           font-family: "Plus Jakarta Sans", Sans-serif;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 500;
-          color: #E9E9E7;
+          color: #e9e9e7;
           margin: 0;
-          line-height: 1.3em;
+          line-height: 1.4em;
+          max-width: 300px;
         }
 
         .mobile-partner-logos {
@@ -201,11 +212,12 @@ const MobileStudioStatsSection = () => {
 
         @media (max-width: 480px) {
           .studio-stats-mobile {
-            padding: 40px 15px;
+            padding: 30px 15px;
           }
 
           .mobile-container {
             gap: 30px;
+            padding: 15px 0;
           }
 
           .mobile-blur-image {
@@ -222,7 +234,12 @@ const MobileStudioStatsSection = () => {
           }
 
           .mobile-stat-label {
-            font-size: 18px;
+            font-size: 16px;
+            max-width: 280px;
+          }
+
+          .mobile-stats {
+            gap: 30px;
           }
 
           .mobile-partner-logos {
@@ -242,75 +259,84 @@ const DesktopStudioStatsSection = () => {
   return (
     <section className="studio-stats">
       {/* <div className="container"> */}
-        {/* Main container - elementor-element-9250352 */}
-        <div className="main-container">
-          {/* Inner wrapper - e-con-inner */}
-          <div className="inner-wrapper">
-            {/* Left container with blur spot and description - elementor-element-eec780e */}
-            <div className="left-container">
-              {/* Blur spot image - elementor-element-870181f */}
-              <div className="blur-spot-container">
+      {/* Main container - elementor-element-9250352 */}
+      <div className="main-container">
+        {/* Inner wrapper - e-con-inner */}
+        <div className="inner-wrapper">
+          {/* Left container with blur spot and description - elementor-element-eec780e */}
+          <div className="left-container">
+            {/* Blur spot image - elementor-element-870181f */}
+            {/* <div className="blur-spot-container">
                 <img 
                   src="/blur-spot-1011x1024.webp" 
                   alt="Blur spot"
                   className="blur-spot-image"
                 />
-              </div>
+              </div> */}
 
-              {/* Description - elementor-element-05bb38d */}
-              <div className="description-container">
+            {/* Description - elementor-element-05bb38d */}
+            {/* <div className="description-container">
                 <h3 className="description-text">
                   Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of excellence. These stats offer a glimpse into our design prowess and its real-world impact.
                 </h3>
-              </div>
+              </div> */}
+          </div>
+
+          {/* Stats row */}
+          <div className="stats-row">
+            {/* First stat - elementor-element-8bffe74 */}
+            <div className="stat-container">
+              <div className="stat-number">80%</div>
+              <h4 className="stat-label">
+                Automates of Calls: Resolves customer queries without human
+                intervention
+              </h4>
             </div>
 
-            {/* Stats row */}
-            <div className="stats-row">
-              {/* First stat - elementor-element-8bffe74 */}
-              <div className="stat-container">
-                <div className="stat-number">260+</div>
-                <h4 className="stat-label">Satisfied Clients</h4>
-              </div>
-              
-              {/* Second stat - elementor-element-49590fb */}
-              <div className="stat-container">
-                <div className="stat-number">40%</div>
-                <h4 className="stat-label">Client Referrals</h4>
-              </div>
-              
-              {/* Third stat - elementor-element-c314a7c */}
-              <div className="stat-container">
-                <div className="stat-number">70+</div>
-                <h4 className="stat-label">Award Recognitions</h4>
-              </div>
+            {/* Second stat - elementor-element-49590fb */}
+            <div className="stat-container">
+              <div className="stat-number">70%</div>
+              <h4 className="stat-label">
+                Reduces Costs to Streamline operations and lower support
+                expenses
+              </h4>
             </div>
 
-            {/* Partner logos - elementor-element-8e03d4e */}
-            <div className="partner-logos">
-              {/* First logo - logo-1.svg */}
-              {/* <div className="logo-item">
-                <img src="/assets/logo-1.svg" alt="Coiffuré" />
-              </div> */}
-              {/* Second logo - logo-2.svg */}
-              {/* <div className="logo-item">
-                <img src="/assets/logo-2.svg" alt="Tecnologia" />
-              </div> */}
-              {/* Third logo - logo-3.svg */}
-              {/* <div className="logo-item">
-                <img src="/assets/logo-3.svg" alt="FABRIK" />
-              </div> */}
-              {/* Fourth logo - logo-4.svg */}
-              {/* <div className="logo-item">
-                <img src="/assets/logo-4.svg" alt="NUMÉRIQUE" />
-              </div> */}
-              {/* Fifth logo - logo-5.svg */}
-              {/* <div className="logo-item">
-                <img src="/assets/logo-5.svg" alt="MACCHINA" />
-              </div> */}
+            {/* Third stat - elementor-element-c314a7c */}
+            <div className="stat-container">
+              <div className="stat-number">+26</div>
+              <h4 className="stat-label">
+                24/7 Multilingual Support upto 26 languages, Scalable, global,
+                and always available
+              </h4>
             </div>
           </div>
+
+          {/* Partner logos - elementor-element-8e03d4e */}
+          {/* <div className="partner-logos"> */}
+          {/* First logo - logo-1.svg */}
+          {/* <div className="logo-item">
+                <img src="/assets/logo-1.svg" alt="Coiffuré" />
+              </div> */}
+          {/* Second logo - logo-2.svg */}
+          {/* <div className="logo-item">
+                <img src="/assets/logo-2.svg" alt="Tecnologia" />
+              </div> */}
+          {/* Third logo - logo-3.svg */}
+          {/* <div className="logo-item">
+                <img src="/assets/logo-3.svg" alt="FABRIK" />
+              </div> */}
+          {/* Fourth logo - logo-4.svg */}
+          {/* <div className="logo-item">
+                <img src="/assets/logo-4.svg" alt="NUMÉRIQUE" />
+              </div> */}
+          {/* Fifth logo - logo-5.svg */}
+          {/* <div className="logo-item">
+                <img src="/assets/logo-5.svg" alt="MACCHINA" />
+              </div> */}
+          {/* </div> */}
         </div>
+      </div>
       {/* </div> */}
 
       <style jsx>{`
@@ -335,7 +361,7 @@ const DesktopStudioStatsSection = () => {
           width: 100%;
           height: 100%;
           background-color: #000;
-          background-image: url('/GettyImages-1487864067-edit.jpg');
+          background-image: url("/GettyImages-1487864067-edit.jpg");
           background-position: bottom left;
           background-repeat: no-repeat;
           background-size: contain;
@@ -404,7 +430,7 @@ const DesktopStudioStatsSection = () => {
           font-size: clamp(28px, 1.4vw, 30px);
           font-weight: 400;
           line-height: 1.2em;
-          color: #E9E9E7;
+          color: #e9e9e7;
           margin: 0;
           white-space: normal;
           max-width: 100%;
@@ -425,7 +451,7 @@ const DesktopStudioStatsSection = () => {
         .stat-container {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
           text-align: center;
           gap: 10px;
           width: 33%;
@@ -444,7 +470,7 @@ const DesktopStudioStatsSection = () => {
           font-family: "Plus Jakarta Sans", Sans-serif;
           font-size: clamp(80px, 6vw, 120px);
           font-weight: 300;
-          color: #E9E9E7;
+          color: #e9e9e7;
           line-height: 1.2em;
           margin: 0;
         }
@@ -453,9 +479,10 @@ const DesktopStudioStatsSection = () => {
           font-family: "Plus Jakarta Sans", Sans-serif;
           font-size: clamp(24px, 1.1vw, 40px);
           font-weight: 500;
-          color: #E9E9E7;
+          color: #e9e9e7;
           margin: 0;
           line-height: 1.3em;
+          text-align: left;
         }
 
         /* Partner logos - elementor-element-8e03d4e */
@@ -560,4 +587,3 @@ const DesktopStudioStatsSection = () => {
 };
 
 export default StudioStatsSection;
-
