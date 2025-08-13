@@ -49,9 +49,12 @@ export const pricingAndFAQStyles = {
   },
 
   pricingCard: (isHighlighted) => ({
+    // background: isHighlighted
+    //   ? 'linear-gradient(135deg, #000000 0%, #0B0033 100%)'
+    //   : 'rgba(255, 255, 255, 0.05)',
     background: isHighlighted
       ? "linear-gradient(135deg, #000000 0%, #0B0033 100%)"
-      : "rgba(255, 255, 255, 0.05)",
+      : "rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     borderRadius: { xs: "12px", sm: "14px", md: "16px" },
     padding: {
@@ -166,9 +169,9 @@ export const pricingAndFAQStyles = {
       md: "12px 18px",
       lg: "12px 20px",
     },
-    borderRadius: { xs: "6px", sm: "7px", md: "8px" },
+    borderRadius: { xs: "60px", sm: "70px", md: "90px" },
     textTransform: "none",
-    fontSize: { xs: "10px", sm: "12px", md: "14px", lg: "16px" },
+    fontSize: { xs: "15px", sm: "18px", md: "22px", lg: "28px" },
     fontWeight: 500,
     fontFamily: "Plus Jakarta Sans, sans-serif",
     fontStyle: "normal",
@@ -178,6 +181,7 @@ export const pricingAndFAQStyles = {
     color: isHighlighted ? "#000000" : "#ffffff",
     border: isHighlighted ? "none" : "1px solid rgba(255, 255, 255, 0.2)",
     mt: { xs: 1, sm: 2, md: 3 },
+    height: { xs: "40px", sm: "50px", md: "60px", lg: "70px" },
     "&:hover": {
       background: isHighlighted ? "#f5f5f5" : "rgba(255, 255, 255, 0.2)",
       transform: "translateY(-2px)",
@@ -353,7 +357,7 @@ export const pricingAndFAQStyles = {
     width: { xs: "100%", sm: "auto" },
     flex: 1,
     "& .MuiOutlinedInput-root": {
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      // backgroundColor: 'rgba(255, 255, 255, 0.1)',
       borderRadius: { xs: "8px", sm: "10px", md: "12px" },
       border: "1px solid rgba(255, 255, 255, 0.2)",
       "& fieldset": {
