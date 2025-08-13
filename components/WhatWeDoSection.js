@@ -38,7 +38,7 @@ export default function WhatWeDoSection() {
     <section className="what-we-do">
       <div className="container">
         <div className="what-we-do-content">
-          <div className="section-label">LETT’S GET YOU STARTED</div>
+          <div className="section-label">LET’S GET YOU STARTED</div>
           <div className="main-text" id="fade-text">
             <p
               className={`text-line ${fadeOpacity < 0.2 ? "faded" : ""}`}
