@@ -251,7 +251,7 @@ export const pricingAndFAQStyles = {
 
   questionText: {
     color: "#ffffff",
-    fontSize: { xs: "16px", sm: "20px", md: "24px", lg: "28px", xl: "32px" },
+    fontSize: { xs: "16px", sm: "20px", md: "26px", lg: "28px", xl: "32px" },
     fontWeight: 500,
     fontFamily: "Plus Jakarta Sans, sans-serif",
     fontStyle: "normal",
@@ -262,7 +262,7 @@ export const pricingAndFAQStyles = {
 
   answerText: {
     color: "#ffffff",
-    fontSize: { xs: "16px", sm: "20px", md: "24px", lg: "28px", xl: "32px" },
+    fontSize: { xs: "16px", sm: "20px", md: "26px", lg: "28px", xl: "32px" },
     fontWeight: 500,
     fontFamily: "Plus Jakarta Sans, sans-serif",
     fontStyle: "normal",
@@ -286,14 +286,15 @@ export const pricingAndFAQStyles = {
     backgroundRepeat: "no-repeat",
     position: "relative",
     padding: {
-      xs: "60px 0px",
-      sm: "80px 40px",
-      md: "100px 60px",
-      lg: "90px 80px",
+      xs: "0px 0px",
+      sm: "0px 40px",
+      md: "0px 60px",
+      lg: "0px 80px",
     },
     color: "#ffffff",
     textAlign: "center",
-    minHeight: { xs: "400px", sm: "450px", md: "400px" },
+    // minHeight: { xs: "400px", sm: "450px", md: "400px" },
+    marginBottom:"6%",
     display: "block",
     "@media (min-width: 1024px)": {
       backgroundSize: "cover",

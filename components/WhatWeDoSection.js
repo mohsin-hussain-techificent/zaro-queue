@@ -93,6 +93,7 @@ export default function WhatWeDoSection() {
           background: #f5f5f5;
           color: #333;
           width: 100%;
+          margin-bottom:-1px
         }
 
         .container {

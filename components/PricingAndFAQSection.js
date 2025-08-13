@@ -57,12 +57,12 @@ const PricingAndFAQSection = () => {
       <Container maxWidth={false} sx={pricingAndFAQStyles.container}>
         {/* Pricing Section */}
         <Box sx={{ ...pricingAndFAQStyles.pricingHeader, px: { xs: 3, md: 6 } }}>
-          <Typography variant="overline" sx={pricingAndFAQStyles.plansLabel}>
-            PLANS
-          </Typography>
-          <Typography variant="h2" sx={pricingAndFAQStyles.pricingTitle}>
-            Pricing Plans
-          </Typography>
+            <Typography variant="overline" sx={{ ...pricingAndFAQStyles.plansLabel, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
+              PLANS
+            </Typography>
+            <Typography variant="h2" sx={{ ...pricingAndFAQStyles.pricingTitle, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
+              Pricing Plans
+            </Typography>
         </Box>
 
         {/* Pricing Cards */}
@@ -73,11 +73,11 @@ const PricingAndFAQSection = () => {
                 <CardContent sx={pricingAndFAQStyles.cardContent}>
                   {/* Plan Name and Price on same line */}
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 , flexDirection: { xs: 'column', sm: 'row' } }}>
-                    <Typography variant="h4" sx={pricingAndFAQStyles.planName}>
+                    <Typography variant="h4" sx={{ ...pricingAndFAQStyles.planName, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                       {plan.name}
                     </Typography>
                     <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
-                      <Typography variant="h3" sx={pricingAndFAQStyles.planPrice}>
+                      <Typography variant="h3" sx={{ ...pricingAndFAQStyles.planPrice, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                         {plan.price}
                       </Typography>
                       {plan.period && (
@@ -86,7 +86,7 @@ const PricingAndFAQSection = () => {
                             color: '#ffffff',
                             fontSize: '24px',
                             fontWeight: 500,
-                            fontFamily: 'Plus Jakarta Sans, sans-serif',
+                            fontFamily: '"Plus Jakarta Sans", sans-serif',
                             fontStyle: 'normal',
                             lineHeight: '100%',
                             letterSpacing: '0%',
@@ -105,7 +105,7 @@ const PricingAndFAQSection = () => {
 
                   {/* Features */}
                   <Box sx={{ mb: 3 }}>
-                    <Typography variant="h6" sx={pricingAndFAQStyles.featuresTitle}>
+                    <Typography variant="h6" sx={{ ...pricingAndFAQStyles.featuresTitle, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                       FEATURES
                     </Typography>
                     {plan.features.map((feature, index) => (
@@ -113,7 +113,7 @@ const PricingAndFAQSection = () => {
                         <Box sx={pricingAndFAQStyles.checkIcon}>
                           <img src="/ticksvgcardds.svg" alt="check" style={{ width: '20px', height: '20px' }} />
                         </Box>
-                        <Typography sx={pricingAndFAQStyles.featureText}>
+                        <Typography sx={{ ...pricingAndFAQStyles.featureText, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                           {feature}
                         </Typography>
                       </Box>
@@ -122,7 +122,7 @@ const PricingAndFAQSection = () => {
 
                   {/* Button */}
                   <Box sx={{ mt: 'auto' }}>
-                    <Button sx={pricingAndFAQStyles.buyButton(plan.isHighlighted)}>
+                    <Button sx={{ ...pricingAndFAQStyles.buyButton(plan.isHighlighted), fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                       Buy now
                     </Button>
                   </Box>
@@ -137,7 +137,7 @@ const PricingAndFAQSection = () => {
       <Box sx={{ position: 'relative', zIndex: 2, width: '100%' }}>
         <Container maxWidth="lg" sx={{ ml: 0, mr: 'auto' }}>
           <Box sx={{ ...pricingAndFAQStyles.faqHeader, px: { xs: 3, md: 6 } }}>
-            <Typography variant="h2" sx={pricingAndFAQStyles.faqTitle}>
+            <Typography variant="h2" sx={{ ...pricingAndFAQStyles.faqTitle, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
               FAQ's
             </Typography>
           </Box>
@@ -155,7 +155,7 @@ const PricingAndFAQSection = () => {
                   expandIcon={null}
                   sx={pricingAndFAQStyles.accordionSummary}
                 >
-                  <Typography sx={pricingAndFAQStyles.questionText}>
+                  <Typography sx={{ ...pricingAndFAQStyles.questionText, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                     {faq.question}
                   </Typography>
                   <Box sx={{ 
@@ -174,7 +174,7 @@ const PricingAndFAQSection = () => {
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails sx={pricingAndFAQStyles.accordionDetails}>
-                  <Typography sx={pricingAndFAQStyles.answerText}>
+                  <Typography sx={{ ...pricingAndFAQStyles.answerText, fontFamily: '"Plus Jakarta Sans", sans-serif' }}>
                     {faq.answer}
                   </Typography>
                 </AccordionDetails>
