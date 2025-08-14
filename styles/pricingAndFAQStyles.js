@@ -346,7 +346,7 @@ export const pricingAndFAQStyles = {
 
   contactForm: {
     display: "flex",
-    flexDirection: { xs: "column", sm: "row" },
+    flexDirection: { xs: "row", sm: "row" },
     gap: { xs: 2, sm: 3 },
     width: "100%",
     maxWidth: { xs: "100%", sm: "500px", md: "600px" },

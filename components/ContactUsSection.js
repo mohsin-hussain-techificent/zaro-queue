@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Box, Typography, Container, TextField, IconButton, Button } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import { useEffect, useState } from "react";
+import { Box, Typography, Container, TextField, Button } from "@mui/material";
 import { pricingAndFAQStyles } from "../styles/pricingAndFAQStyles";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,7 +7,12 @@ import "react-toastify/dist/ReactToastify.css";
 const ContactUsSection = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
   const handleChange = (e) => {
@@ -17,10 +21,19 @@ const ContactUsSection = () => {
     setError(value.length > 0 && !validateEmail(value));
   };
 
+  const handleCaptcha = () => {
+    setCaptchaVerified(true);
+  };
+
   const handleSubmit = async () => {
     if (!validateEmail(email)) {
       setError(true);
       toast.error("Please enter a valid email address");
+      return;
+    }
+
+    if (!captchaVerified) {
+      toast.error("Please complete the CAPTCHA");
       return;
     }
 
@@ -41,6 +54,8 @@ const ContactUsSection = () => {
 
       toast.success("Email sent successfully!");
       setEmail("");
+      setCaptchaVerified(false);
+      window.grecaptcha.reset();
     } catch (error) {
       console.error("Error sending to Discord:", error);
       toast.error("Failed to send email. Please try again.");
@@ -56,27 +71,38 @@ const ContactUsSection = () => {
           </Typography>
 
           <Typography sx={pricingAndFAQStyles.contactSubtitle}>
-            Boost engagement, save time, and drive conversions with a smart
-            chatbot built specifically for your business.
+            Boost engagement, save time, and drive conversions with a smart chatbot built specifically for your business.
           </Typography>
 
-          <Box sx={pricingAndFAQStyles.contactForm}>
-            <TextField
-              placeholder="Enter your email"
-              variant="outlined"
-              sx={pricingAndFAQStyles.emailInput}
-              type="email"
-              value={email}
-              onChange={handleChange}
-              error={error}
-              helperText={error ? "Please enter a valid email address" : ""}
-            />
-            <Button
-              sx={pricingAndFAQStyles.subscribeButton}
-              onClick={handleSubmit}
-            >
-              Get in touch
-            </Button>
+          {isClient && (
+            <div
+              className="g-recaptcha"
+              data-sitekey="6LfsXKQrAAAAAF8UqObdc6IK7whmlHqOd7nrgE8p"
+              data-callback={() => handleCaptcha()}
+            ></div>
+          )}
+
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-start", mt: 2 }}>
+            <Box sx={pricingAndFAQStyles.contactForm}>
+              <TextField
+                placeholder="Enter your email"
+                variant="outlined"
+                sx={pricingAndFAQStyles.emailInput}
+                type="email"
+                value={email}
+                onChange={handleChange}
+                error={error}
+              />
+
+              <Button sx={pricingAndFAQStyles.subscribeButton} onClick={handleSubmit}>
+                Get in touch
+              </Button>
+            </Box>
+            {error && (
+              <Box sx={{ color: "red", fontSize: "0.8rem", mt: 0.5, pl: 1 }}>
+                Please enter a valid email address
+              </Box>
+            )}
           </Box>
 
           <Typography sx={pricingAndFAQStyles.contactFooter}>
@@ -86,7 +112,6 @@ const ContactUsSection = () => {
         </Box>
       </Container>
 
-      {/* Toastify Notification Container */}
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
     </Box>
   );
