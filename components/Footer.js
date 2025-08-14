@@ -11,7 +11,7 @@ export default function Footer() {
         px: 2,
         backgroundColor: "#fff",
         borderTop: "1px solid #eee",
-        pb: {xs:1,sm:2},
+        pb: { xs: 1, sm: 2 },
       }}
     >
       <Grid
@@ -95,9 +95,9 @@ export default function Footer() {
               gap: 2,
             }}
           >
-            {/* Left: Email */}
+
             <Link
-              href="mailto:info@zer0q.com"
+              href="mailto:info@zer0q.com?subject=Inquiry&body=Hello%20Team%2C"
               variant="body2"
               sx={{
                 color: "black",
@@ -105,10 +105,9 @@ export default function Footer() {
                 order: { xs: 2, sm: 1 },
               }}
             >
-              studio@exapler.com
+              info@zer0q.com
             </Link>
 
-            {/* Center: Copyright */}
             <Typography
               variant="body2"
               sx={{
